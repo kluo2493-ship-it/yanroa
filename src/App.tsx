@@ -829,7 +829,7 @@ function App() {
                   <img
                     src="/540f310b1f9b5244da98c950465274f4.png"
                     alt={t('plan.before')}
-                    className="h-36 w-full object-cover"
+                    className="h-56 w-full object-cover"
                   />
                   <div className="absolute bottom-2 left-2 bg-white px-2 py-0.5">
                     <span className="text-xs text-gray-600">{t('plan.beforeLabel')}</span>
@@ -839,7 +839,7 @@ function App() {
                   <img
                     src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
                     alt={t('plan.after')}
-                    className="h-36 w-full object-cover"
+                    className="h-56 w-full object-cover"
                   />
                   <div className="absolute bottom-2 left-2 bg-white px-2 py-0.5">
                     <span className="text-xs text-gray-600">{t('plan.afterLabel')}</span>
