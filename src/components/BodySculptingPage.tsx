@@ -340,7 +340,7 @@ function BodySculptingPage() {
               <div key={caseStudy.id} className="bg-white border" style={{borderColor: '#E5E7EB'}}>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   {/* Image Compare Slider */}
-                  <div className="p-6 md:p-8">
+                  <div className="p-6 md:p-8 min-h-[500px] md:min-h-[600px] flex items-center">
                     <ImageCompareSlider
                       beforeImage={caseStudy.beforeImage}
                       afterImage={caseStudy.afterImage}
