@@ -1105,7 +1105,7 @@ function App() {
           <p className="text-sm md:text-base text-center mb-8 md:mb-16 tracking-wide" style={{color: '#6B7280'}}>展望未来</p>
 
           <div className="mb-8 md:mb-16 mx-auto w-full md:w-4/5 lg:w-3/4">
-            <div className="h-64 md:h-96 lg:h-[575px]">
+            <div className="h-80 md:h-[500px] lg:h-[700px]">
               <ImageCompareSlider
                 beforeLabel="【此处放置案例照片 A】"
                 afterLabel="【此处放置案例照片 B】"
