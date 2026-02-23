@@ -289,7 +289,7 @@ function App() {
               )}
             </div>
 
-            <a href="#cases" className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>案例</a>
+            <button onClick={() => navigate('/cases')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>案例</button>
             <button onClick={() => navigate('/faq')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>FAQ</button>
           </div>
 
@@ -449,15 +449,17 @@ function App() {
               )}
             </div>
 
-            <a
-              href="#cases"
-              onClick={() => setShowMobileMenu(false)}
-              className="block px-6 py-4 text-white text-sm transition-all border-b border-white border-opacity-10"
+            <button
+              onClick={() => {
+                navigate('/cases');
+                setShowMobileMenu(false);
+              }}
+              className="w-full text-left px-6 py-4 text-white text-sm transition-all border-b border-white border-opacity-10"
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
               案例
-            </a>
+            </button>
 
             <button
               onClick={() => {

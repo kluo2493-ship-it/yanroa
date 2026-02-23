@@ -13,6 +13,7 @@ import InjectionLiftingPage from './components/InjectionLiftingPage.tsx';
 import HairTransplantPage from './components/HairTransplantPage.tsx';
 import DentalPage from './components/DentalPage.tsx';
 import FAQPage from './components/FAQPage.tsx';
+import CasesPage from './components/CasesPage.tsx';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
@@ -33,6 +34,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/hair-transplant" element={<HairTransplantPage />} />
         <Route path="/dental" element={<DentalPage />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/cases" element={<CasesPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
