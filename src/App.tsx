@@ -1005,7 +1005,7 @@ function App() {
         </div>
       </section>
 
-      <section className="w-full relative bg-white md:bg-[#F9FAFB]">
+      <section className="w-full relative" style={{backgroundColor: '#FFFFFF'}}>
         <div className="max-w-7xl mx-auto py-12 md:py-20 px-4">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F2937'}}>
@@ -1097,7 +1097,7 @@ function App() {
         </div>
       </section>
 
-      <section className="py-12 md:py-24 px-4 md:px-8 bg-white md:bg-[#F3F4F6]">
+      <section className="py-12 md:py-24 px-4 md:px-8" style={{backgroundColor: '#FFFFFF'}}>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
             有没有想过你的脸会是什么样子
@@ -1116,7 +1116,7 @@ function App() {
         </div>
       </section>
 
-      <section className="py-8 md:py-24 px-3 md:px-12 bg-white md:bg-[#F3F4F6]">
+      <section className="py-8 md:py-24 px-3 md:px-12" style={{backgroundColor: '#FFFFFF'}}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-light text-center mb-6 md:mb-8" style={{color: '#1F2937'}}>
             真实案例对比
@@ -1322,9 +1322,9 @@ function App() {
           </div>
 
           {/* Mobile map - responsive */}
-          <div className="md:hidden px-4 mb-8">
-            <div className="w-full overflow-hidden bg-white rounded-lg p-4">
-              <img src="/map.png" alt="全球客户分布地图" className="w-full h-auto object-contain mix-blend-darken" style={{backgroundColor: '#FFFFFF'}} />
+          <div className="md:hidden px-4 mb-8" style={{backgroundColor: '#FFFFFF'}}>
+            <div className="w-full overflow-hidden" style={{backgroundColor: '#FFFFFF'}}>
+              <img src="/map.png" alt="全球客户分布地图" className="w-full h-auto object-contain" style={{backgroundColor: '#FFFFFF'}} />
             </div>
           </div>
 
