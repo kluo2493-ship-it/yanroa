@@ -1294,8 +1294,6 @@ function App() {
 
       <CaseStudiesSection />
 
-      <ServicesSection />
-
       <section className="py-12 md:py-24 relative overflow-hidden bg-white">
         <div className="relative">
           {/* Mobile title */}
