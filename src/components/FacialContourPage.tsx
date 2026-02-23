@@ -371,7 +371,7 @@ function FacialContourPage() {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-20 md:py-28 px-12 md:px-24 bg-white">
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
@@ -384,31 +384,37 @@ function FacialContourPage() {
 
           <div className="space-y-16">
             {cases.map((caseItem, index) => (
-              <div
-                key={caseItem.id}
-                className="border-b pb-16"
-                style={{borderColor: index === cases.length - 1 ? 'transparent' : '#E5E7EB'}}
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div className={index % 2 === 0 ? 'order-1' : 'order-1 lg:order-2'}>
-                    <div className="inline-block px-4 py-2 mb-6 text-xs tracking-widest border" style={{color: '#1C2B3A', borderColor: '#1C2B3A'}}>
-                      {caseItem.parts}
-                    </div>
-                    <p className="text-base md:text-lg font-light leading-relaxed mb-8" style={{color: '#4B5563'}}>
-                      {caseItem.description}
-                    </p>
+              <div key={caseItem.id} className="bg-white border" style={{borderColor: '#E5E7EB'}}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                  {/* Image Compare Slider */}
+                  <div className="p-6 md:p-8 min-h-[500px] md:min-h-[600px] flex items-center">
+                    <ImageCompareSlider />
                   </div>
 
-                  <div className={index % 2 === 0 ? 'order-2' : 'order-2 lg:order-1'}>
-                    <div className="aspect-[3/4]">
-                      <ImageCompareSlider />
+                  {/* Case Details */}
+                  <div className="p-6 md:p-8 flex flex-col justify-center">
+                    <div className="mb-4">
+                      <span
+                        className="inline-block px-4 py-1 text-xs font-light tracking-wider"
+                        style={{backgroundColor: '#1C2B3A', color: 'white'}}
+                      >
+                        {caseItem.parts}
+                      </span>
                     </div>
+                    <h3 className="text-xl md:text-2xl font-light mb-4" style={{color: '#1F1F1F'}}>
+                      案例 {String(index + 1).padStart(2, '0')}
+                    </h3>
+                    <h4 className="text-lg md:text-xl font-normal mb-4" style={{color: '#1F1F1F'}}>
+                      面部轮廓重塑
+                    </h4>
+                    <p className="text-sm md:text-base leading-relaxed" style={{color: '#6B7280'}}>
+                      {caseItem.description}
+                    </p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
