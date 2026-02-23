@@ -1,6 +1,7 @@
 import { Calendar } from 'lucide-react';
 import { BookingFormData, BookingStep } from '../BookingPage';
 import { useState } from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 interface BookingDesktopProps {
   step: BookingStep;
@@ -199,6 +200,7 @@ function BookingDesktop({
   handlePayment,
   navigate
 }: BookingDesktopProps) {
+  const { t } = useLanguage();
   const [countryCode, setCountryCode] = useState('+86');
   const [phoneNumber, setPhoneNumber] = useState('');
 
@@ -244,10 +246,10 @@ function BookingDesktop({
           {step === 'form' && (
             <>
               <h1 className="text-4xl font-light text-center mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-                立即预约
+                {t('booking.title')}
               </h1>
               <p className="text-center mb-16 tracking-wide" style={{color: '#6B7280'}}>
-                填写您的信息，我们的专业团队将尽快与您联系
+                {t('booking.subtitle')}
               </p>
 
               {error && (
@@ -260,7 +262,7 @@ function BookingDesktop({
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-normal mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-                      姓 <span style={{color: '#EF4444'}}>*</span>
+                      {t('booking.lastName')} <span style={{color: '#EF4444'}}>{t('booking.required')}</span>
                     </label>
                     <input
                       type="text"
@@ -270,12 +272,12 @@ function BookingDesktop({
                       required
                       className="w-full px-5 py-4 border text-sm tracking-wide transition focus:outline-none focus:border-gray-900"
                       style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
-                      placeholder="姓"
+                      placeholder={t('booking.lastNamePlaceholder')}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-normal mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-                      名 <span style={{color: '#EF4444'}}>*</span>
+                      {t('booking.firstName')} <span style={{color: '#EF4444'}}>{t('booking.required')}</span>
                     </label>
                     <input
                       type="text"
@@ -285,14 +287,14 @@ function BookingDesktop({
                       required
                       className="w-full px-5 py-4 border text-sm tracking-wide transition focus:outline-none focus:border-gray-900"
                       style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
-                      placeholder="名"
+                      placeholder={t('booking.firstNamePlaceholder')}
                     />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-normal mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-                    邮箱 <span style={{color: '#EF4444'}}>*</span>
+                    {t('booking.email')} <span style={{color: '#EF4444'}}>{t('booking.required')}</span>
                   </label>
                   <input
                     type="email"
@@ -302,13 +304,13 @@ function BookingDesktop({
                     required
                     className="w-full px-5 py-4 border text-sm tracking-wide transition focus:outline-none focus:border-gray-900"
                     style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
-                    placeholder="请输入您的邮箱地址"
+                    placeholder={t('booking.emailPlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-normal mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-                    电话 <span style={{color: '#EF4444'}}>*</span>
+                    {t('booking.phone')} <span style={{color: '#EF4444'}}>{t('booking.required')}</span>
                   </label>
                   <div className="flex gap-3">
                     <select
@@ -330,7 +332,7 @@ function BookingDesktop({
                       required
                       className="flex-1 px-5 py-4 border text-sm tracking-wide transition focus:outline-none focus:border-gray-900"
                       style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
-                      placeholder="请输入您的电话号码"
+                      placeholder={t('booking.phonePlaceholder')}
                     />
                   </div>
                 </div>
@@ -342,7 +344,7 @@ function BookingDesktop({
                     className="w-full py-4 text-white text-sm font-light transition tracking-wider disabled:opacity-50"
                     style={{backgroundColor: '#1C2B3A'}}
                   >
-                    {loading ? '提交中...' : '提交预约'}
+                    {loading ? t('booking.submitting') : t('booking.submit')}
                   </button>
                 </div>
 
@@ -376,57 +378,24 @@ function BookingDesktop({
                 <div className="flex justify-between items-start mb-3">
                   <div>
                     <h2 className="text-2xl font-light tracking-wide mb-2" style={{color: '#1F1F1F'}}>
-                      终身VIP会员
+                      {t('booking.vipTitle')}
                     </h2>
                     <p className="text-sm tracking-wide" style={{color: '#6B7280'}}>
-                      享受终身尊享服务与专属优惠
+                      {t('booking.vipDescription')}
                     </p>
                   </div>
-                  <span className="text-3xl font-light" style={{color: '#1F1F1F'}}>$200</span>
+                  <span className="text-3xl font-light" style={{color: '#1F1F1F'}}>{t('booking.vipPrice')}</span>
                 </div>
               </div>
 
-              <h3 className="text-lg font-normal mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-                服务项目
-              </h3>
-
-              <div className="grid grid-cols-3 gap-6 mb-10">
-                <div className="border p-5" style={{borderColor: '#D1D5DB'}}>
-                  <div className="w-full aspect-square bg-gray-200 rounded mb-4"></div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>注射改善</span>
-                    <span className="text-lg font-light" style={{color: '#1F1F1F'}}>$40</span>
-                  </div>
-                  <p className="text-xs" style={{color: '#6B7280'}}>微创注射美容方案</p>
-                </div>
-
-                <div className="border p-5" style={{borderColor: '#D1D5DB'}}>
-                  <div className="w-full aspect-square bg-gray-200 rounded mb-4"></div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>通过手术改善</span>
-                    <span className="text-lg font-light" style={{color: '#1F1F1F'}}>$80</span>
-                  </div>
-                  <p className="text-xs" style={{color: '#6B7280'}}>专业手术美容方案</p>
-                </div>
-
-                <div className="border p-5" style={{borderColor: '#D1D5DB'}}>
-                  <div className="w-full aspect-square bg-gray-200 rounded mb-4"></div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>头发建议</span>
-                    <span className="text-lg font-light" style={{color: '#1F1F1F'}}>$20</span>
-                  </div>
-                  <p className="text-xs" style={{color: '#6B7280'}}>专业毛发健康咨询</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
+              <div className="space-y-4 mb-10">
                 <button
                   onClick={() => handlePayment('PayPal')}
                   disabled={loading}
                   className="w-full py-4 border text-sm transition hover:bg-gray-50 disabled:opacity-50 font-normal tracking-wide"
                   style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
                 >
-                  {loading ? '处理中...' : 'PayPal支付'}
+                  {loading ? t('booking.processing') : t('booking.paypalPayment')}
                 </button>
 
                 <button
@@ -435,17 +404,50 @@ function BookingDesktop({
                   className="w-full py-4 border text-sm transition hover:bg-gray-50 disabled:opacity-50 font-normal tracking-wide"
                   style={{borderColor: '#D1D5DB', color: '#1F1F1F'}}
                 >
-                  {loading ? '处理中...' : '银行卡支付'}
+                  {loading ? t('booking.processing') : t('booking.cardPayment')}
                 </button>
               </div>
 
-              <div className="mt-8 text-center">
+              <h3 className="text-lg font-normal mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
+                {t('booking.selectServices')}
+              </h3>
+
+              <div className="grid grid-cols-3 gap-6 mb-10">
+                <div className="border p-5" style={{borderColor: '#D1D5DB'}}>
+                  <div className="w-full aspect-square bg-gray-200 rounded mb-4"></div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>{t('booking.injection')}</span>
+                    <span className="text-lg font-light" style={{color: '#1F1F1F'}}>{t('booking.injectionPrice')}</span>
+                  </div>
+                  <p className="text-xs" style={{color: '#6B7280'}}>{t('booking.injectionDesc')}</p>
+                </div>
+
+                <div className="border p-5" style={{borderColor: '#D1D5DB'}}>
+                  <div className="w-full aspect-square bg-gray-200 rounded mb-4"></div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>{t('booking.surgery')}</span>
+                    <span className="text-lg font-light" style={{color: '#1F1F1F'}}>{t('booking.surgeryPrice')}</span>
+                  </div>
+                  <p className="text-xs" style={{color: '#6B7280'}}>{t('booking.surgeryDesc')}</p>
+                </div>
+
+                <div className="border p-5" style={{borderColor: '#D1D5DB'}}>
+                  <div className="w-full aspect-square bg-gray-200 rounded mb-4"></div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>{t('booking.hairConsult')}</span>
+                    <span className="text-lg font-light" style={{color: '#1F1F1F'}}>{t('booking.hairConsultPrice')}</span>
+                  </div>
+                  <p className="text-xs" style={{color: '#6B7280'}}>{t('booking.hairConsultDesc')}</p>
+                </div>
+              </div>
+
+              <div className="text-center">
                 <button
                   onClick={() => navigate('/')}
                   className="text-sm transition tracking-wide"
                   style={{color: '#6B7280'}}
                 >
-                  返回首页
+                  {t('booking.backToHome')}
                 </button>
               </div>
             </>
@@ -459,17 +461,17 @@ function BookingDesktop({
                 </svg>
               </div>
               <h1 className="text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-                预约成功！
+                {t('booking.successTitle')}
               </h1>
               <p className="mb-8 tracking-wide" style={{color: '#6B7280'}}>
-                您的预约已确认，我们的团队将尽快与您联系
+                {t('booking.successMessage')}
               </p>
               <button
                 onClick={() => navigate('/')}
                 className="px-8 py-3 text-white text-sm transition"
                 style={{backgroundColor: '#1C2B3A'}}
               >
-                返回首页
+                {t('booking.backToHome')}
               </button>
             </div>
           )}

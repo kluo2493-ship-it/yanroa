@@ -1,6 +1,7 @@
 import { Calendar, X } from 'lucide-react';
 import { BookingFormData, BookingStep } from '../BookingPage';
 import { useState } from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 interface BookingMobileProps {
   step: BookingStep;
@@ -199,6 +200,7 @@ function BookingMobile({
   handlePayment,
   navigate
 }: BookingMobileProps) {
+  const { t } = useLanguage();
   const [countryCode, setCountryCode] = useState('+86');
   const [phoneNumber, setPhoneNumber] = useState('');
 
@@ -256,10 +258,10 @@ function BookingMobile({
           {step === 'form' && (
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h1 className="text-2xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-                立即预约
+                {t('booking.title')}
               </h1>
               <p className="text-center mb-6 text-xs tracking-wide" style={{color: '#6B7280'}}>
-                填写您的信息，我们的专业团队将尽快与您联系
+                {t('booking.subtitle')}
               </p>
 
               {error && (
@@ -272,7 +274,7 @@ function BookingMobile({
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-normal mb-2 tracking-wide" style={{color: '#1F1F1F'}}>
-                      姓 <span style={{color: '#EF4444'}}>*</span>
+                      {t('booking.lastName')} <span style={{color: '#EF4444'}}>{t('booking.required')}</span>
                     </label>
                     <input
                       type="text"
@@ -282,12 +284,12 @@ function BookingMobile({
                       required
                       className="w-full px-4 py-3 bg-white border rounded-lg text-sm tracking-wide transition focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                       style={{borderColor: '#E5E7EB', color: '#1F1F1F'}}
-                      placeholder="姓"
+                      placeholder={t('booking.lastNamePlaceholder')}
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-normal mb-2 tracking-wide" style={{color: '#1F1F1F'}}>
-                      名 <span style={{color: '#EF4444'}}>*</span>
+                      {t('booking.firstName')} <span style={{color: '#EF4444'}}>{t('booking.required')}</span>
                     </label>
                     <input
                       type="text"
@@ -297,14 +299,14 @@ function BookingMobile({
                       required
                       className="w-full px-4 py-3 bg-white border rounded-lg text-sm tracking-wide transition focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                       style={{borderColor: '#E5E7EB', color: '#1F1F1F'}}
-                      placeholder="名"
+                      placeholder={t('booking.firstNamePlaceholder')}
                     />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-normal mb-2 tracking-wide" style={{color: '#1F1F1F'}}>
-                    邮箱 <span style={{color: '#EF4444'}}>*</span>
+                    {t('booking.email')} <span style={{color: '#EF4444'}}>{t('booking.required')}</span>
                   </label>
                   <input
                     type="email"
@@ -314,13 +316,13 @@ function BookingMobile({
                     required
                     className="w-full px-4 py-3 bg-white border rounded-lg text-sm tracking-wide transition focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                     style={{borderColor: '#E5E7EB', color: '#1F1F1F'}}
-                    placeholder="请输入您的邮箱地址"
+                    placeholder={t('booking.emailPlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-normal mb-2 tracking-wide" style={{color: '#1F1F1F'}}>
-                    电话 <span style={{color: '#EF4444'}}>*</span>
+                    {t('booking.phone')} <span style={{color: '#EF4444'}}>{t('booking.required')}</span>
                   </label>
                   <div className="flex gap-2">
                     <select
@@ -342,7 +344,7 @@ function BookingMobile({
                       required
                       className="flex-1 px-4 py-3 bg-white border rounded-lg text-sm tracking-wide transition focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                       style={{borderColor: '#E5E7EB', color: '#1F1F1F'}}
-                      placeholder="请输入您的电话号码"
+                      placeholder={t('booking.phonePlaceholder')}
                     />
                   </div>
                 </div>
@@ -354,7 +356,7 @@ function BookingMobile({
                     className="w-full py-3.5 text-white text-sm font-light transition tracking-wider disabled:opacity-50 rounded-lg"
                     style={{backgroundColor: '#1C2B3A'}}
                   >
-                    {loading ? '提交中...' : '提交预约'}
+                    {loading ? t('booking.submitting') : t('booking.submit')}
                   </button>
                 </div>
               </form>
@@ -367,52 +369,13 @@ function BookingMobile({
                 <div className="border p-5 mb-6 rounded-lg" style={{borderColor: '#E5E7EB', backgroundColor: '#F9FAFB'}}>
                   <div className="flex justify-between items-start mb-2">
                     <h2 className="text-lg font-light tracking-wide" style={{color: '#1F1F1F'}}>
-                      终身VIP会员
+                      {t('booking.vipTitle')}
                     </h2>
-                    <span className="text-2xl font-light" style={{color: '#1F1F1F'}}>$200</span>
+                    <span className="text-2xl font-light" style={{color: '#1F1F1F'}}>{t('booking.vipPrice')}</span>
                   </div>
                   <p className="text-xs tracking-wide" style={{color: '#6B7280'}}>
-                    享受终身尊享服务与专属优惠
+                    {t('booking.vipDescription')}
                   </p>
-                </div>
-
-                <h3 className="text-sm font-normal mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-                  选择服务项目
-                </h3>
-
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-3 border p-3 rounded-lg" style={{borderColor: '#E5E7EB'}}>
-                    <div className="w-16 h-16 flex-shrink-0 bg-gray-200 rounded"></div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>注射改善</span>
-                        <span className="text-sm font-light" style={{color: '#1F1F1F'}}>$40</span>
-                      </div>
-                      <p className="text-xs" style={{color: '#6B7280'}}>微创注射美容方案</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 border p-3 rounded-lg" style={{borderColor: '#E5E7EB'}}>
-                    <div className="w-16 h-16 flex-shrink-0 bg-gray-200 rounded"></div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>通过手术改善</span>
-                        <span className="text-sm font-light" style={{color: '#1F1F1F'}}>$80</span>
-                      </div>
-                      <p className="text-xs" style={{color: '#6B7280'}}>专业手术美容方案</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 border p-3 rounded-lg" style={{borderColor: '#E5E7EB'}}>
-                    <div className="w-16 h-16 flex-shrink-0 bg-gray-200 rounded"></div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>头发建议</span>
-                        <span className="text-sm font-light" style={{color: '#1F1F1F'}}>$20</span>
-                      </div>
-                      <p className="text-xs" style={{color: '#6B7280'}}>专业毛发健康咨询</p>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -422,14 +385,14 @@ function BookingMobile({
                 </div>
               )}
 
-              <div className="space-y-3">
+              <div className="space-y-3 mb-6">
                 <button
                   onClick={() => handlePayment('PayPal')}
                   disabled={loading}
                   className="w-full py-3.5 border text-sm transition hover:bg-gray-50 disabled:opacity-50 rounded-lg font-normal tracking-wide"
                   style={{borderColor: '#E5E7EB', color: '#1F1F1F'}}
                 >
-                  {loading ? '处理中...' : 'PayPal支付'}
+                  {loading ? t('booking.processing') : t('booking.paypalPayment')}
                 </button>
 
                 <button
@@ -438,17 +401,58 @@ function BookingMobile({
                   className="w-full py-3.5 border text-sm transition hover:bg-gray-50 disabled:opacity-50 rounded-lg font-normal tracking-wide"
                   style={{borderColor: '#E5E7EB', color: '#1F1F1F'}}
                 >
-                  {loading ? '处理中...' : '银行卡支付'}
+                  {loading ? t('booking.processing') : t('booking.cardPayment')}
                 </button>
               </div>
 
-              <div className="mt-6 text-center">
+              <div className="mb-6">
+                <h3 className="text-sm font-normal mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
+                  {t('booking.selectServices')}
+                </h3>
+
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 border p-3 rounded-lg" style={{borderColor: '#E5E7EB'}}>
+                    <div className="w-16 h-16 flex-shrink-0 bg-gray-200 rounded"></div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>{t('booking.injection')}</span>
+                        <span className="text-sm font-light" style={{color: '#1F1F1F'}}>{t('booking.injectionPrice')}</span>
+                      </div>
+                      <p className="text-xs" style={{color: '#6B7280'}}>{t('booking.injectionDesc')}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 border p-3 rounded-lg" style={{borderColor: '#E5E7EB'}}>
+                    <div className="w-16 h-16 flex-shrink-0 bg-gray-200 rounded"></div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>{t('booking.surgery')}</span>
+                        <span className="text-sm font-light" style={{color: '#1F1F1F'}}>{t('booking.surgeryPrice')}</span>
+                      </div>
+                      <p className="text-xs" style={{color: '#6B7280'}}>{t('booking.surgeryDesc')}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 border p-3 rounded-lg" style={{borderColor: '#E5E7EB'}}>
+                    <div className="w-16 h-16 flex-shrink-0 bg-gray-200 rounded"></div>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm font-normal tracking-wide" style={{color: '#1F1F1F'}}>{t('booking.hairConsult')}</span>
+                        <span className="text-sm font-light" style={{color: '#1F1F1F'}}>{t('booking.hairConsultPrice')}</span>
+                      </div>
+                      <p className="text-xs" style={{color: '#6B7280'}}>{t('booking.hairConsultDesc')}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
                 <button
                   onClick={() => navigate('/')}
                   className="text-xs transition tracking-wide"
                   style={{color: '#6B7280'}}
                 >
-                  返回首页
+                  {t('booking.backToHome')}
                 </button>
               </div>
             </div>
@@ -462,17 +466,17 @@ function BookingMobile({
                 </svg>
               </div>
               <h1 className="text-2xl font-light mb-2 tracking-wide" style={{color: '#1F1F1F'}}>
-                预约成功！
+                {t('booking.successTitle')}
               </h1>
               <p className="mb-6 text-xs tracking-wide" style={{color: '#6B7280'}}>
-                您的预约已确认，我们的团队将尽快与您联系
+                {t('booking.successMessage')}
               </p>
               <button
                 onClick={() => navigate('/')}
                 className="px-8 py-3 text-white text-sm transition rounded-lg"
                 style={{backgroundColor: '#1C2B3A'}}
               >
-                返回首页
+                {t('booking.backToHome')}
               </button>
             </div>
           )}
