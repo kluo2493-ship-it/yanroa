@@ -91,32 +91,32 @@ function MobileTestimonialCarousel() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="py-8 px-4">
-          <div className="flex gap-4 justify-center items-start mb-6">
+        <div className="py-8 px-4 md:px-12">
+          <div className="flex gap-4 md:gap-8 justify-center items-start mb-6 md:mb-10">
             <div className="bg-white shadow-xl" style={{ width: '90px', aspectRatio: '3/4' }}>
               <div className="w-full h-full flex items-center justify-center" style={{backgroundColor: '#E8F4EA'}}>
-                <span className="text-xs" style={{color: '#6B7280'}}>WA {currentTestimonial.id}</span>
+                <span className="text-xs md:text-sm" style={{color: '#6B7280'}}>WA {currentTestimonial.id}</span>
               </div>
             </div>
 
             <div className="bg-white shadow-xl" style={{ width: '90px', aspectRatio: '3/4' }}>
               <div className="w-full h-full flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                <span className="text-xs text-gray-500">照片 {currentTestimonial.id}-1</span>
+                <span className="text-xs md:text-sm text-gray-500">照片 {currentTestimonial.id}-1</span>
               </div>
             </div>
 
             <div className="bg-white shadow-xl" style={{ width: '90px', aspectRatio: '3/4' }}>
               <div className="w-full h-full flex items-center justify-center" style={{backgroundColor: '#A0A7B5'}}>
-                <span className="text-xs text-white">照片 {currentTestimonial.id}-2</span>
+                <span className="text-xs md:text-sm text-white">照片 {currentTestimonial.id}-2</span>
               </div>
             </div>
           </div>
 
-          <div className="text-center max-w-lg mx-auto">
-            <p className="text-sm font-light leading-relaxed mb-4" style={{color: '#4B5563'}}>
+          <div className="text-center max-w-lg md:max-w-2xl mx-auto">
+            <p className="text-sm md:text-base font-light leading-relaxed mb-4 md:mb-6" style={{color: '#4B5563'}}>
               "{currentTestimonial.message}"
             </p>
-            <p className="text-xs font-normal" style={{color: '#1F1F1F'}}>
+            <p className="text-xs md:text-sm font-normal" style={{color: '#1F1F1F'}}>
               — {currentTestimonial.name}
             </p>
           </div>
@@ -124,27 +124,27 @@ function MobileTestimonialCarousel() {
 
         <button
           onClick={handlePrevious}
-          className="absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-white shadow-lg transition-opacity opacity-70 hover:opacity-100"
+          className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 p-2 md:p-3 bg-white shadow-lg transition-opacity opacity-70 hover:opacity-100"
           style={{color: '#1C2B3A'}}
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
         </button>
 
         <button
           onClick={handleNext}
-          className="absolute right-0 top-1/2 -translate-y-1/2 p-2 bg-white shadow-lg transition-opacity opacity-70 hover:opacity-100"
+          className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 p-2 md:p-3 bg-white shadow-lg transition-opacity opacity-70 hover:opacity-100"
           style={{color: '#1C2B3A'}}
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
         </button>
       </div>
 
-      <div className="flex justify-center gap-2 mt-4">
+      <div className="flex justify-center gap-2 md:gap-3 mt-4 md:mt-6">
         {testimonials.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className="w-2 h-2 rounded-full transition-all"
+            className="w-2 h-2 md:w-3 md:h-3 rounded-full transition-all"
             style={{
               backgroundColor: currentIndex === index ? '#1C2B3A' : '#D1D5DB'
             }}
