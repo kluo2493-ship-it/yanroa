@@ -22,6 +22,7 @@ interface Testimonial {
 
 function TestimonialCard({ testimonial, isExpanded, onExpand, onCollapse }: { testimonial: Testimonial, isExpanded: boolean, onExpand: () => void, onCollapse: () => void }) {
   const [isHovered, setIsHovered] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <div className={`flex-shrink-0 transition-all duration-700 ease-in-out ${isExpanded ? 'w-full z-50' : 'w-72'}`}>
