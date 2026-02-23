@@ -1007,12 +1007,21 @@ function App() {
           <p className="text-sm md:text-base text-center mb-8 md:mb-16 tracking-wide" style={{color: '#6B7280'}}>{t('vision.subtitle')}</p>
 
           <div className="mb-8 md:mb-16 mx-auto w-full md:w-4/5 lg:w-3/4">
-            <div className="h-80 md:h-[500px] lg:h-[700px]">
-              <ImageCompareSlider
-                beforeLabel="【此处放置案例照片 A】"
-                afterLabel="【此处放置案例照片 B】"
-                initialPosition={50}
-              />
+            <div className="grid grid-cols-2 gap-4 md:gap-8">
+              <div className="overflow-hidden rounded-lg">
+                <img
+                  src="/540f310b1f9b5244da98c950465274f4.png"
+                  alt="术前照片"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="overflow-hidden rounded-lg">
+                <img
+                  src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
+                  alt="术后照片"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
