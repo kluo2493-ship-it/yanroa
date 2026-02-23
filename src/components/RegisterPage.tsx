@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { Mail, Lock, Eye, EyeOff, Upload, User } from 'lucide-react';
+import Navbar from './Navbar';
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -127,8 +128,10 @@ function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-6 py-12">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      <div className="flex items-center justify-center px-6 py-12">
+        <div className="w-full max-w-md">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-light tracking-widest mb-3" style={{color: '#1F1F1F'}}>
             AESTHETIC
@@ -284,6 +287,7 @@ function RegisterPage() {
           <Link to="/" className="block text-sm transition tracking-wide" style={{color: '#6B7280'}}>
             返回首页
           </Link>
+        </div>
         </div>
       </div>
     </div>

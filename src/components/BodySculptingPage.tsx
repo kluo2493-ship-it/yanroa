@@ -4,6 +4,7 @@ import { useState } from 'react';
 import ImageCompareSlider from './ImageCompareSlider';
 import CTASection from './CTASection';
 import Footer from './Footer';
+import Navbar from './Navbar';
 
 function BodySculptingPage() {
   const navigate = useNavigate();
@@ -109,23 +110,7 @@ function BodySculptingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <nav className="sticky top-0 bg-white z-50 py-6 border-b" style={{borderColor: '#E5E7EB'}}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-light tracking-widest" style={{color: '#1F1F1F'}}>AESTHETIC</span>
-          </div>
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-sm transition"
-            style={{color: '#6B7280'}}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}
-          >
-            <ArrowLeft className="w-4 h-4" />
-            返回首页
-          </button>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="py-16 md:py-24 px-6 md:px-12 bg-gradient-to-b from-white to-gray-50">

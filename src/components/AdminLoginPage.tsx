@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { Lock } from 'lucide-react';
+import Navbar from './Navbar';
 
 function AdminLoginPage() {
   const navigate = useNavigate();
@@ -48,8 +49,10 @@ function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{backgroundColor: '#F3F4F6'}}>
-      <div className="w-full max-w-md">
+    <div className="min-h-screen" style={{backgroundColor: '#F3F4F6'}}>
+      <Navbar />
+      <div className="flex items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md">
         <div className="bg-white p-8 shadow-lg">
           <div className="flex justify-center mb-8">
             <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{backgroundColor: '#1C2B3A'}}>
@@ -115,6 +118,7 @@ function AdminLoginPage() {
               返回首页
             </button>
           </div>
+        </div>
         </div>
       </div>
     </div>

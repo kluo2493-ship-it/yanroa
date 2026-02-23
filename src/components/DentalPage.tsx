@@ -2,29 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import CTASection from './CTASection';
 import Footer from './Footer';
+import Navbar from './Navbar';
 
 function DentalPage() {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
-      <nav className="sticky top-0 bg-white z-50 py-6 border-b" style={{borderColor: '#E5E7EB'}}>
-        <div className="max-w-7xl mx-auto px-12 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-light tracking-widest" style={{color: '#1F1F1F'}}>AESTHETIC</span>
-          </div>
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-sm transition"
-            style={{color: '#6B7280'}}
-            onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'}
-            onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}
-          >
-            <ArrowLeft className="w-4 h-4" />
-            返回首页
-          </button>
-        </div>
-      </nav>
+      <Navbar />
 
       <section className="py-24 px-12">
         <div className="max-w-6xl mx-auto">

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 interface FAQItem {
   question: string;
@@ -86,6 +88,7 @@ export default function FAQPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Navbar />
       {/* Hero Section */}
       <section className="pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-12 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-4xl mx-auto text-center">
@@ -190,6 +193,7 @@ export default function FAQPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
