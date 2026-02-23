@@ -618,18 +618,18 @@ function App() {
           </div>
 
           <div className="md:hidden max-w-md mx-auto">
-            <div className="rounded-3xl p-6" style={{backgroundColor: '#B9CBDC'}}>
+            <div className="rounded-3xl p-6 bg-white border-2" style={{borderColor: '#B9CBDC'}}>
               <div className="flex justify-center mb-4">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white">
-                  <svg className="w-6 h-6" style={{color: '#B9CBDC'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{backgroundColor: '#1C2B3A'}}>
+                  <svg className="w-6 h-6" style={{color: '#FFFFFF'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
               </div>
 
-              <h2 className="text-2xl font-light text-center mb-5 text-white">{t('advantages.title')}</h2>
+              <h2 className="text-2xl font-light text-center mb-5" style={{color: '#1F1F1F'}}>{t('advantages.title')}</h2>
 
-              <div className="rounded-2xl p-4 space-y-0" style={{backgroundColor: 'rgba(255,255,255,0.2)'}}>
+              <div className="rounded-2xl p-4 space-y-0 bg-white border" style={{borderColor: '#E5E7EB'}}>
                 {[
                   { num: '1', title: t('advantages.advantage1') },
                   { num: '2', title: t('advantages.advantage2') },
@@ -639,16 +639,16 @@ function App() {
                 ].map((item, index, array) => (
                   <div key={item.num}>
                     <div className="flex items-start gap-3 py-2">
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white flex-shrink-0 text-sm font-light" style={{color: '#6B7280'}}>
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-light" style={{backgroundColor: '#1C2B3A', color: '#FFFFFF'}}>
                         {item.num}
                       </div>
                       <div className="flex-1 pt-1">
-                        <h3 className="text-sm font-light text-white">{item.title}</h3>
+                        <h3 className="text-sm font-light" style={{color: '#1F1F1F'}}>{item.title}</h3>
                       </div>
                     </div>
                     {index < array.length - 1 && (
                       <div className="flex justify-center py-0">
-                        <svg className="w-4 h-4 text-white opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 opacity-40" style={{color: '#6B7280'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </div>
@@ -661,7 +661,7 @@ function App() {
         </div>
       </section>
 
-      <section className="py-12 md:py-24 px-4 md:px-12" style={{backgroundColor: '#F3F4F6'}}>
+      <section className="py-12 md:py-24 px-4 md:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
@@ -672,9 +672,9 @@ function App() {
             </p>
           </div>
 
-          <div className="border-4 p-4 md:p-24 relative overflow-hidden" style={{borderColor: '#B9CBDC', backgroundColor: '#FFFFFF'}}>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-50 to-transparent opacity-30 rounded-full -mr-32 -mt-32"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-blue-50 to-transparent opacity-30 rounded-full -ml-24 -mb-24"></div>
+          <div className="border-4 p-4 md:p-24 relative overflow-hidden bg-white" style={{borderColor: '#B9CBDC'}}>
+            <div className="absolute top-0 right-0 w-64 h-64 opacity-5 rounded-full -mr-32 -mt-32" style={{backgroundColor: '#B9CBDC'}}></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 opacity-5 rounded-full -ml-24 -mb-24" style={{backgroundColor: '#B9CBDC'}}></div>
 
             <div className="relative z-10">
             <div className="hidden md:grid md:grid-cols-3 gap-6 md:gap-16 mb-6 md:mb-16">
@@ -907,7 +907,7 @@ function App() {
         </div>
       </section>
 
-      <section className="w-full relative" style={{backgroundColor: '#FFFFFF'}}>
+      <section className="w-full relative bg-white">
         <div className="max-w-7xl mx-auto py-12 md:py-20 px-4">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F2937'}}>
@@ -920,7 +920,7 @@ function App() {
         </div>
 
         {/* Desktop Layout - Keep Original */}
-        <div className="hidden md:block w-full relative">
+        <div className="hidden md:block w-full relative bg-white">
           <img
             src="/56315efc544d966bb744e9a52c7de1f4.png"
             alt="Professional portrait"
@@ -999,7 +999,7 @@ function App() {
         </div>
       </section>
 
-      <section className="py-12 md:py-24 px-4 md:px-8" style={{backgroundColor: '#FFFFFF'}}>
+      <section className="py-12 md:py-24 px-4 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
             {t('vision.title')}
@@ -1018,7 +1018,7 @@ function App() {
         </div>
       </section>
 
-      <section className="py-8 md:py-24 px-3 md:px-12" style={{backgroundColor: '#FFFFFF'}}>
+      <section className="py-8 md:py-24 px-3 md:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-light text-center mb-6 md:mb-8" style={{color: '#1F2937'}}>
             {t('realCases.title')}
@@ -1224,9 +1224,9 @@ function App() {
           </div>
 
           {/* Mobile map - responsive */}
-          <div className="md:hidden px-4 mb-8" style={{backgroundColor: '#FFFFFF'}}>
-            <div className="w-full overflow-hidden" style={{backgroundColor: '#FFFFFF'}}>
-              <img src="/map.png" alt="全球客户分布地图" className="w-full h-auto object-contain" style={{backgroundColor: '#FFFFFF'}} />
+          <div className="md:hidden px-4 mb-8 bg-white">
+            <div className="w-full overflow-hidden bg-white">
+              <img src="/map.png" alt="全球客户分布地图" className="w-full h-auto object-contain bg-white" />
             </div>
           </div>
 
