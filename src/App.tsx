@@ -246,7 +246,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">注射提升</span>
+                          <span className="text-lg font-light tracking-wider">面部年轻化</span>
                         </button>
                         <button
                           onClick={() => navigate('/hair-transplant')}
@@ -421,7 +421,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    注射提升
+                    面部年轻化
                   </button>
                   <button
                     onClick={() => {
@@ -578,7 +578,7 @@ function App() {
                 <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>身体塑形</h3>
               </div>
               <div className="group cursor-pointer">
-                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>注射提升</h3>
+                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>面部年轻化</h3>
               </div>
             </div>
           </div>
@@ -662,7 +662,7 @@ function App() {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>注射提升</h3>
+                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>面部年轻化</h3>
               </div>
               <div
                 className="cursor-pointer px-4 py-3 rounded-lg transition-all duration-300 active:scale-95"

@@ -146,7 +146,7 @@ function Navbar() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">注射提升</span>
+                          <span className="text-lg font-light tracking-wider">面部年轻化</span>
                         </button>
                         <button
                           onClick={() => {
@@ -329,7 +329,7 @@ function Navbar() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    注射提升
+                    面部年轻化
                   </button>
                   <button
                     onClick={() => {

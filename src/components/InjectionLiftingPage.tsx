@@ -29,7 +29,7 @@ function InjectionLiftingPage() {
       <section className="py-24 px-12">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-light mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-            注射提升
+            面部年轻化
           </h1>
           <p className="text-lg mb-12 leading-relaxed" style={{color: '#6B7280'}}>
             非手术方式，轻松实现年轻化效果
