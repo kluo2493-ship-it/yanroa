@@ -93,21 +93,21 @@ function MobileTestimonialCarousel() {
       >
         <div className="py-8 px-4 md:px-12">
           <div className="flex gap-4 md:gap-8 justify-center items-start mb-6 md:mb-10">
-            <div className="bg-white shadow-xl" style={{ width: '90px', aspectRatio: '3/4' }}>
+            <div className="bg-white shadow-xl" style={{ width: '110px', aspectRatio: '3/4' }}>
               <div className="w-full h-full flex items-center justify-center" style={{backgroundColor: '#E8F4EA'}}>
-                <span className="text-xs md:text-sm" style={{color: '#6B7280'}}>WA {currentTestimonial.id}</span>
+                <span className="text-xs md:text-base" style={{color: '#6B7280'}}>WA {currentTestimonial.id}</span>
               </div>
             </div>
 
-            <div className="bg-white shadow-xl" style={{ width: '90px', aspectRatio: '3/4' }}>
+            <div className="bg-white shadow-xl" style={{ width: '110px', aspectRatio: '3/4' }}>
               <div className="w-full h-full flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                <span className="text-xs md:text-sm text-gray-500">照片 {currentTestimonial.id}-1</span>
+                <span className="text-xs md:text-base text-gray-500">照片 {currentTestimonial.id}-1</span>
               </div>
             </div>
 
-            <div className="bg-white shadow-xl" style={{ width: '90px', aspectRatio: '3/4' }}>
+            <div className="bg-white shadow-xl" style={{ width: '110px', aspectRatio: '3/4' }}>
               <div className="w-full h-full flex items-center justify-center" style={{backgroundColor: '#A0A7B5'}}>
-                <span className="text-xs md:text-sm text-white">照片 {currentTestimonial.id}-2</span>
+                <span className="text-xs md:text-base text-white">照片 {currentTestimonial.id}-2</span>
               </div>
             </div>
           </div>
