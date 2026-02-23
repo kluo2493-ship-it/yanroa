@@ -5,6 +5,7 @@ import { User } from '@supabase/supabase-js';
 import { LogOut, User as UserIcon, Menu, X } from 'lucide-react';
 import ImageCompareSlider from './components/ImageCompareSlider';
 import CaseStudiesSection from './components/CaseStudiesSection';
+import ServicesSection from './components/ServicesSection';
 import MobileTestimonialCarousel from './components/MobileTestimonialCarousel';
 import LanguageSelector from './components/LanguageSelector';
 import { useLanguage } from './contexts/LanguageContext';
@@ -1292,6 +1293,8 @@ function App() {
       </section>
 
       <CaseStudiesSection />
+
+      <ServicesSection />
 
       <section className="py-12 md:py-24 relative overflow-hidden bg-white">
         <div className="relative">
