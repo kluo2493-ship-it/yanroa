@@ -1060,7 +1060,7 @@ function App() {
               className="w-full h-auto object-cover rounded-lg mb-6"
             />
 
-            <div className="space-y-4 mb-8">
+            <div className="grid grid-cols-2 gap-4 mb-8">
               {[
                 {
                   image: '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
@@ -1079,18 +1079,17 @@ function App() {
                   title: '4. 动态与肌肉维度'
                 }
               ].map((item, index) => (
-                <div key={index} className="flex gap-4 items-center bg-white p-4 rounded-xl shadow-md border-l-4" style={{borderLeftColor: '#1C2B3A'}}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-28 h-28 object-cover rounded-lg flex-shrink-0 shadow-sm"
-                  />
-                  <div className="flex-1">
-                    <h3 className="text-base font-medium relative inline-block pb-1" style={{color: '#1F2937'}}>
-                      {item.title}
-                      <span className="absolute bottom-0 left-0 w-full h-0.5" style={{backgroundColor: '#B9CBDC'}}></span>
-                    </h3>
+                <div key={index} className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm border" style={{borderColor: '#E5E7EB', minHeight: '200px'}}>
+                  <div className="flex-1 flex items-center justify-center mb-3">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-24 h-24 object-contain"
+                    />
                   </div>
+                  <h3 className="text-xs font-normal text-center leading-relaxed" style={{color: '#1F2937'}}>
+                    {item.title}
+                  </h3>
                 </div>
               ))}
             </div>
