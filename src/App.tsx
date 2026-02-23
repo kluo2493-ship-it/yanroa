@@ -1097,11 +1097,19 @@ function App() {
             <div className="bg-white p-6" style={{borderColor: '#B9CBDC', border: '3px solid #B9CBDC'}}>
               {/* Before/After Images */}
               <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                  <span className="text-gray-600 text-xs">{t('realCases.before')}</span>
+                <div className="aspect-[3/5] overflow-hidden">
+                  <img
+                    src="/540f310b1f9b5244da98c950465274f4.png"
+                    alt={t('realCases.before')}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#A0A7B5'}}>
-                  <span className="text-white text-xs">{t('realCases.after')}</span>
+                <div className="aspect-[3/5] overflow-hidden">
+                  <img
+                    src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
+                    alt={t('realCases.after')}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 
@@ -1142,11 +1150,19 @@ function App() {
             <div className="bg-white p-6" style={{borderColor: '#B9CBDC', border: '3px solid #B9CBDC'}}>
               {/* Before/After Images */}
               <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                  <span className="text-gray-600 text-xs">{t('realCases.before')}</span>
+                <div className="aspect-[3/5] overflow-hidden">
+                  <img
+                    src="/540f310b1f9b5244da98c950465274f4.png"
+                    alt={t('realCases.before')}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#A0A7B5'}}>
-                  <span className="text-white text-xs">{t('realCases.after')}</span>
+                <div className="aspect-[3/5] overflow-hidden">
+                  <img
+                    src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
+                    alt={t('realCases.after')}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 
