@@ -618,18 +618,18 @@ function App() {
           </div>
 
           <div className="md:hidden max-w-md mx-auto">
-            <div className="rounded-3xl p-6 bg-white border-2" style={{borderColor: '#B9CBDC'}}>
+            <div className="rounded-3xl p-6" style={{backgroundColor: '#B9CBDC'}}>
               <div className="flex justify-center mb-4">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{backgroundColor: '#1C2B3A'}}>
-                  <svg className="w-6 h-6" style={{color: '#FFFFFF'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white">
+                  <svg className="w-6 h-6" style={{color: '#B9CBDC'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
               </div>
 
-              <h2 className="text-2xl font-light text-center mb-5" style={{color: '#1F1F1F'}}>{t('advantages.title')}</h2>
+              <h2 className="text-2xl font-light text-center mb-5 text-white">{t('advantages.title')}</h2>
 
-              <div className="rounded-2xl p-4 space-y-0 bg-white border" style={{borderColor: '#E5E7EB'}}>
+              <div className="rounded-2xl p-4 space-y-0" style={{backgroundColor: 'rgba(255,255,255,0.2)'}}>
                 {[
                   { num: '1', title: t('advantages.advantage1') },
                   { num: '2', title: t('advantages.advantage2') },
@@ -639,16 +639,16 @@ function App() {
                 ].map((item, index, array) => (
                   <div key={item.num}>
                     <div className="flex items-start gap-3 py-2">
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-light" style={{backgroundColor: '#1C2B3A', color: '#FFFFFF'}}>
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white flex-shrink-0 text-sm font-light" style={{color: '#6B7280'}}>
                         {item.num}
                       </div>
                       <div className="flex-1 pt-1">
-                        <h3 className="text-sm font-light" style={{color: '#1F1F1F'}}>{item.title}</h3>
+                        <h3 className="text-sm font-light text-white">{item.title}</h3>
                       </div>
                     </div>
                     {index < array.length - 1 && (
                       <div className="flex justify-center py-0">
-                        <svg className="w-4 h-4 opacity-40" style={{color: '#6B7280'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 text-white opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </div>
