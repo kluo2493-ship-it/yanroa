@@ -826,17 +826,21 @@ function App() {
             <div className="flex flex-col gap-6 mb-8">
               <div className="flex justify-center gap-6">
                 <div className="overflow-hidden relative w-40" style={{backgroundColor: '#F3F4F6'}}>
-                  <div className="h-36 flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                    <span className="text-gray-500 text-xs">{t('plan.before')}</span>
-                  </div>
+                  <img
+                    src="/540f310b1f9b5244da98c950465274f4.png"
+                    alt={t('plan.before')}
+                    className="h-36 w-full object-cover"
+                  />
                   <div className="absolute bottom-2 left-2 bg-white px-2 py-0.5">
                     <span className="text-xs text-gray-600">{t('plan.beforeLabel')}</span>
                   </div>
                 </div>
                 <div className="overflow-hidden relative w-40" style={{backgroundColor: '#F3F4F6'}}>
-                  <div className="h-36 flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                    <span className="text-gray-500 text-xs">{t('plan.after')}</span>
-                  </div>
+                  <img
+                    src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
+                    alt={t('plan.after')}
+                    className="h-36 w-full object-cover"
+                  />
                   <div className="absolute bottom-2 left-2 bg-white px-2 py-0.5">
                     <span className="text-xs text-gray-600">{t('plan.afterLabel')}</span>
                   </div>
@@ -872,17 +876,23 @@ function App() {
                 />
               </svg>
               <div className="overflow-hidden relative" style={{width: '400px', backgroundColor: '#F3F4F6'}}>
-                <div className="flex items-center justify-center" style={{height: '500px', backgroundColor: '#B9CBDC'}}>
-                  <span className="text-gray-600 text-sm">{t('plan.before')}</span>
-                </div>
+                <img
+                  src="/540f310b1f9b5244da98c950465274f4.png"
+                  alt={t('plan.before')}
+                  className="w-full object-cover"
+                  style={{height: '500px'}}
+                />
                 <div className="absolute bottom-4 left-4 bg-white px-3 py-1.5 shadow">
                   <span className="text-xs font-medium text-gray-700">{t('plan.beforeLabel')}</span>
                 </div>
               </div>
               <div className="overflow-hidden relative" style={{width: '400px', backgroundColor: '#F3F4F6'}}>
-                <div className="flex items-center justify-center" style={{height: '500px', backgroundColor: '#B9CBDC'}}>
-                  <span className="text-gray-600 text-sm">{t('plan.after')}</span>
-                </div>
+                <img
+                  src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
+                  alt={t('plan.after')}
+                  className="w-full object-cover"
+                  style={{height: '500px'}}
+                />
                 <div className="absolute bottom-4 left-4 bg-white px-3 py-1.5 shadow">
                   <span className="text-xs font-medium text-gray-700">{t('plan.afterLabel')}</span>
                 </div>
@@ -1007,21 +1017,12 @@ function App() {
           <p className="text-sm md:text-base text-center mb-8 md:mb-16 tracking-wide" style={{color: '#6B7280'}}>{t('vision.subtitle')}</p>
 
           <div className="mb-8 md:mb-16 mx-auto w-full md:w-4/5 lg:w-3/4">
-            <div className="grid grid-cols-2 gap-4 md:gap-8">
-              <div className="overflow-hidden rounded-lg">
-                <img
-                  src="/540f310b1f9b5244da98c950465274f4.png"
-                  alt="术前照片"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="overflow-hidden rounded-lg">
-                <img
-                  src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
-                  alt="术后照片"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="h-80 md:h-[500px] lg:h-[700px]">
+              <ImageCompareSlider
+                beforeLabel="【此处放置案例照片 A】"
+                afterLabel="【此处放置案例照片 B】"
+                initialPosition={50}
+              />
             </div>
           </div>
         </div>
@@ -1106,19 +1107,11 @@ function App() {
             <div className="bg-white p-6" style={{borderColor: '#B9CBDC', border: '3px solid #B9CBDC'}}>
               {/* Before/After Images */}
               <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="aspect-[3/5] overflow-hidden">
-                  <img
-                    src="/540f310b1f9b5244da98c950465274f4.png"
-                    alt={t('realCases.before')}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
+                  <span className="text-gray-600 text-xs">{t('realCases.before')}</span>
                 </div>
-                <div className="aspect-[3/5] overflow-hidden">
-                  <img
-                    src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
-                    alt={t('realCases.after')}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#A0A7B5'}}>
+                  <span className="text-white text-xs">{t('realCases.after')}</span>
                 </div>
               </div>
 
@@ -1159,19 +1152,11 @@ function App() {
             <div className="bg-white p-6" style={{borderColor: '#B9CBDC', border: '3px solid #B9CBDC'}}>
               {/* Before/After Images */}
               <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="aspect-[3/5] overflow-hidden">
-                  <img
-                    src="/540f310b1f9b5244da98c950465274f4.png"
-                    alt={t('realCases.before')}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
+                  <span className="text-gray-600 text-xs">{t('realCases.before')}</span>
                 </div>
-                <div className="aspect-[3/5] overflow-hidden">
-                  <img
-                    src="/7f2a85b5a678c2f472ee7c56c64a6039.png"
-                    alt={t('realCases.after')}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="aspect-[3/5] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#A0A7B5'}}>
+                  <span className="text-white text-xs">{t('realCases.after')}</span>
                 </div>
               </div>
 
