@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { User } from '@supabase/supabase-js';
 import { LogOut, User as UserIcon, Menu, X } from 'lucide-react';
+import LanguageSelector from './LanguageSelector';
 
 interface Profile {
   avatar_url: string | null;
@@ -200,6 +201,7 @@ function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
+            <LanguageSelector />
             {user ? (
               <div className="relative">
                 <button
@@ -275,6 +277,8 @@ function Navbar() {
           </div>
 
           <div className="flex-1 overflow-y-auto py-6">
+            <LanguageSelector isMobile={true} />
+
             <button
               onClick={() => {
                 navigate('/');
