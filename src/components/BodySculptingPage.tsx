@@ -102,14 +102,6 @@ function BodySculptingPage() {
       beforeImage: '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
       afterImage: '/Gemini_Generated_Image_94iwds94iwds94iw.png',
       description: '采用假体隆胸技术，塑造自然饱满的胸型，提升整体身材比例。'
-    },
-    {
-      id: 3,
-      title: '全身塑形案例',
-      category: '综合塑形',
-      beforeImage: '/Gemini_Generated_Image_iubeodiubeodiube.png',
-      afterImage: '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
-      description: '多部位综合塑形，打造完美身材曲线，重塑自信魅力。'
     }
   ];
 
@@ -365,18 +357,9 @@ function BodySculptingPage() {
                     <h4 className="text-lg md:text-xl font-normal mb-4" style={{color: '#1F1F1F'}}>
                       {caseStudy.title}
                     </h4>
-                    <p className="text-sm md:text-base leading-relaxed mb-6" style={{color: '#6B7280'}}>
+                    <p className="text-sm md:text-base leading-relaxed" style={{color: '#6B7280'}}>
                       {caseStudy.description}
                     </p>
-                    <button
-                      onClick={() => navigate('/booking')}
-                      className="self-start px-8 py-3 text-white text-sm transition tracking-wider"
-                      style={{backgroundColor: '#1C2B3A'}}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
-                    >
-                      预约咨询
-                    </button>
                   </div>
                 </div>
               </div>
