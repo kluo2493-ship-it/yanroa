@@ -6,6 +6,8 @@ import { LogOut, User as UserIcon, Menu, X } from 'lucide-react';
 import ImageCompareSlider from './components/ImageCompareSlider';
 import CaseStudiesSection from './components/CaseStudiesSection';
 import MobileTestimonialCarousel from './components/MobileTestimonialCarousel';
+import LanguageSelector from './components/LanguageSelector';
+import { useLanguage } from './contexts/LanguageContext';
 
 interface Profile {
   avatar_url: string | null;
@@ -57,7 +59,7 @@ function TestimonialCard({ testimonial, isExpanded, onExpand, onCollapse }: { te
 
               <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`} style={{ zIndex: 4 }}>
                 <div className="bg-white bg-opacity-95 px-6 py-3 shadow-lg">
-                  <span className="text-sm font-light tracking-wider" style={{color: '#1C2B3A'}}>快来看看</span>
+                  <span className="text-sm font-light tracking-wider" style={{color: '#1C2B3A'}}>{t('testimonials.readMore')}</span>
                 </div>
               </div>
             </div>
@@ -118,6 +120,7 @@ function TestimonialCard({ testimonial, isExpanded, onExpand, onCollapse }: { te
 
 function App() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -183,14 +186,14 @@ function App() {
           </button>
 
           <div className="hidden md:flex items-center gap-12">
-            <a href="#home" className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>首页</a>
+            <a href="#home" className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t('nav.home')}</a>
 
             <div
               className="relative"
               onMouseEnter={() => setShowProjectsMenu(true)}
               onMouseLeave={() => setShowProjectsMenu(false)}
             >
-              <a href="#projects" className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>项目</a>
+              <a href="#projects" className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t('nav.projects')}</a>
 
               {showProjectsMenu && (
                 <>
@@ -216,7 +219,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">面部轮廓</span>
+                          <span className="text-lg font-light tracking-wider">{t('nav.facialContour')}</span>
                         </button>
                         <button
                           onClick={() => navigate('/body-sculpting')}
@@ -231,7 +234,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">身体塑形</span>
+                          <span className="text-lg font-light tracking-wider">{t('nav.bodySculpting')}</span>
                         </button>
                         <button
                           onClick={() => navigate('/injection-lifting')}
@@ -246,7 +249,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">面部年轻化</span>
+                          <span className="text-lg font-light tracking-wider">{t('nav.facialRejuvenation')}</span>
                         </button>
                         <button
                           onClick={() => navigate('/hair-transplant')}
@@ -261,7 +264,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">植发</span>
+                          <span className="text-lg font-light tracking-wider">{t('nav.hairTransplant')}</span>
                         </button>
                         <button
                           onClick={() => navigate('/dental')}
@@ -276,7 +279,7 @@ function App() {
                             e.currentTarget.style.transform = 'scale(1)';
                           }}
                         >
-                          <span className="text-lg font-light tracking-wider">牙齿美容</span>
+                          <span className="text-lg font-light tracking-wider">{t('nav.dental')}</span>
                         </button>
                       </div>
 
@@ -289,11 +292,12 @@ function App() {
               )}
             </div>
 
-            <button onClick={() => navigate('/cases')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>案例</button>
-            <button onClick={() => navigate('/faq')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>FAQ</button>
+            <button onClick={() => navigate('/cases')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t('nav.cases')}</button>
+            <button onClick={() => navigate('/faq')} className="text-sm transition" style={{color: '#6B7280'}} onMouseEnter={(e) => e.currentTarget.style.color = '#1F1F1F'} onMouseLeave={(e) => e.currentTarget.style.color = '#6B7280'}>{t('nav.faq')}</button>
           </div>
 
           <div className="hidden md:flex items-center gap-4">
+            <LanguageSelector />
             {user ? (
               <div className="relative">
                 <button
@@ -327,7 +331,7 @@ function App() {
                       onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
                       <LogOut className="w-4 h-4" />
-                      退出登录
+                      {t('nav.logout')}
                     </button>
                   </div>
                 )}
@@ -338,7 +342,7 @@ function App() {
                 className="text-sm transition px-4 py-2"
                 style={{color: '#6B7280'}}
               >
-                登录
+                {t('nav.login')}
               </button>
             )}
             <button
@@ -348,7 +352,7 @@ function App() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
             >
-              立即预约
+              {t('nav.bookNow')}
             </button>
           </div>
         </div>
@@ -369,6 +373,8 @@ function App() {
           </div>
 
           <div className="flex-1 overflow-y-auto py-6">
+            <LanguageSelector isMobile={true} />
+
             <a
               href="#home"
               onClick={() => setShowMobileMenu(false)}
@@ -376,7 +382,7 @@ function App() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              首页
+              {t('nav.home')}
             </a>
 
             <div className="border-b border-white border-opacity-10">
@@ -386,7 +392,7 @@ function App() {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
               >
-                项目
+                {t('nav.projects')}
               </button>
               {showMobileProjects && (
                 <div className="bg-black bg-opacity-20">
@@ -399,7 +405,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    面部轮廓
+                    {t('nav.facialContour')}
                   </button>
                   <button
                     onClick={() => {
@@ -410,7 +416,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    身体塑形
+                    {t('nav.bodySculpting')}
                   </button>
                   <button
                     onClick={() => {
@@ -421,7 +427,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    面部年轻化
+                    {t('nav.facialRejuvenation')}
                   </button>
                   <button
                     onClick={() => {
@@ -432,7 +438,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    植发
+                    {t('nav.hairTransplant')}
                   </button>
                   <button
                     onClick={() => {
@@ -443,7 +449,7 @@ function App() {
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
-                    牙齿美容
+                    {t('nav.dental')}
                   </button>
                 </div>
               )}
@@ -458,7 +464,7 @@ function App() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              案例
+              {t('nav.cases')}
             </button>
 
             <button
@@ -470,7 +476,7 @@ function App() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              FAQ
+              {t('nav.faq')}
             </button>
           </div>
 
@@ -484,7 +490,7 @@ function App() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              立即预约
+              {t('nav.bookNow')}
             </button>
 
             {user ? (
@@ -502,7 +508,7 @@ function App() {
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                 >
                   <LogOut className="w-4 h-4" />
-                  退出登录
+                  {t('nav.logout')}
                 </button>
               </div>
             ) : (
@@ -515,7 +521,7 @@ function App() {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
               >
-                登录
+                {t('nav.login')}
               </button>
             )}
           </div>
@@ -532,10 +538,10 @@ function App() {
       <section className="py-16 md:py-32 px-12">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-xl md:text-3xl font-light mb-3 leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>
-            只有自然独一无二的，
+            {t('hero.title1')}
           </h1>
           <h2 className="text-xl md:text-3xl font-light mb-12 leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>
-            你才是这个世界上最独特的符号
+            {t('hero.title2')}
           </h2>
           <button
             onClick={() => navigate('/booking')}
@@ -544,7 +550,7 @@ function App() {
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
           >
-            现在开始探索
+            {t('hero.cta')}
           </button>
         </div>
       </section>
@@ -572,13 +578,13 @@ function App() {
 
             <div className="w-1/4 space-y-12">
               <div className="group cursor-pointer">
-                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>面部轮廓</h3>
+                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>{t('nav.facialContour')}</h3>
               </div>
               <div className="group cursor-pointer">
-                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>身体塑形</h3>
+                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>{t('nav.bodySculpting')}</h3>
               </div>
               <div className="group cursor-pointer">
-                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>面部年轻化</h3>
+                <h3 className="text-xl font-normal transition" style={{color: '#1F1F1F'}}>{t('nav.facialRejuvenation')}</h3>
               </div>
             </div>
           </div>
@@ -624,7 +630,7 @@ function App() {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>面部轮廓</h3>
+                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.facialContour')}</h3>
               </div>
               <div
                 className="cursor-pointer px-4 py-3 rounded-lg transition-all duration-300 active:scale-95"
@@ -643,7 +649,7 @@ function App() {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>身体塑形</h3>
+                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.bodySculpting')}</h3>
               </div>
               <div
                 className="cursor-pointer px-4 py-3 rounded-lg transition-all duration-300 active:scale-95"
@@ -662,7 +668,7 @@ function App() {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>面部年轻化</h3>
+                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.facialRejuvenation')}</h3>
               </div>
               <div
                 className="cursor-pointer px-4 py-3 rounded-lg transition-all duration-300 active:scale-95"
@@ -681,7 +687,7 @@ function App() {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>植发</h3>
+                <h3 className="text-sm font-normal text-center" style={{color: '#1F1F1F'}}>{t('nav.hairTransplant')}</h3>
               </div>
             </div>
           </div>
@@ -691,18 +697,18 @@ function App() {
       <section className="py-12 md:py-24 px-6 md:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="hidden md:block">
-            <h2 className="text-3xl font-light text-center mb-20 tracking-wide" style={{color: '#1F1F1F'}}>我们的优势</h2>
+            <h2 className="text-3xl font-light text-center mb-20 tracking-wide" style={{color: '#1F1F1F'}}>{t('advantages.title')}</h2>
 
             <div className="relative">
               <div className="absolute top-1/2 left-0 right-0 h-0.5" style={{backgroundColor: '#B9CBDC', transform: 'translateY(-50%)'}}></div>
 
               <div className="grid grid-cols-5 gap-8 relative">
                 {[
-                  { num: '1', title: '注重面部整体比例和谐' },
-                  { num: '2', title: '专业的面诊评估' },
-                  { num: '3', title: '专注于整体特征' },
-                  { num: '4', title: '看看未来的自己' },
-                  { num: '5', title: '基于美学的个性化方案' }
+                  { num: '1', title: t('advantages.advantage1') },
+                  { num: '2', title: t('advantages.advantage2') },
+                  { num: '3', title: t('advantages.advantage3') },
+                  { num: '4', title: t('advantages.advantage4') },
+                  { num: '5', title: t('advantages.advantage5') }
                 ].map((item) => (
                   <div key={item.num} className="text-center relative">
                     <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-xl font-light relative z-10" style={{backgroundColor: '#1C2B3A'}}>
@@ -725,15 +731,15 @@ function App() {
                 </div>
               </div>
 
-              <h2 className="text-2xl font-light text-center mb-5 text-white">我们的优势</h2>
+              <h2 className="text-2xl font-light text-center mb-5 text-white">{t('advantages.title')}</h2>
 
               <div className="rounded-2xl p-4 space-y-0" style={{backgroundColor: 'rgba(255,255,255,0.2)'}}>
                 {[
-                  { num: '1', title: '注重面部整体比例和谐' },
-                  { num: '2', title: '专业的面诊评估' },
-                  { num: '3', title: '专注于整体特征' },
-                  { num: '4', title: '看看未来的自己' },
-                  { num: '5', title: '基于美学的个性化方案' }
+                  { num: '1', title: t('advantages.advantage1') },
+                  { num: '2', title: t('advantages.advantage2') },
+                  { num: '3', title: t('advantages.advantage3') },
+                  { num: '4', title: t('advantages.advantage4') },
+                  { num: '5', title: t('advantages.advantage5') }
                 ].map((item, index, array) => (
                   <div key={item.num}>
                     <div className="flex items-start gap-3 py-2">
@@ -763,10 +769,10 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-              不同人种的面部特征
+              {t('ethnicity.title')}
             </h2>
             <p className="text-sm md:text-base leading-relaxed tracking-wide" style={{color: '#4B5563'}}>
-              注重面部整体比例和谐，基于美学对不同人种有个性化的定制方案
+              {t('ethnicity.subtitle')}
             </p>
           </div>
 
@@ -778,27 +784,27 @@ function App() {
             <div className="hidden md:grid md:grid-cols-3 gap-6 md:gap-16 mb-6 md:mb-16">
               {[
                 {
-                  ethnicity: '黑人',
+                  ethnicity: t('ethnicity.black'),
                   image: '/black_facial_features/1_(1).png',
                   features: {
-                    bone: '面中部常显前突，但鼻骨低平；眶距可能较宽；下颌骨发达，嘴唇极厚且唇红外翻。',
-                    soft: '皮肤较厚，不易长皱纹但需关注瘢痕愈合；鼻翼宽大，鼻孔扁平，鼻小柱短；多为双眼皮但形态深邃。'
+                    bone: t('ethnicity.blackBone'),
+                    soft: t('ethnicity.blackSoft')
                   }
                 },
                 {
-                  ethnicity: '黄种人',
+                  ethnicity: t('ethnicity.asian'),
                   image: '/east_asian_facial_features/1_(2).png',
                   features: {
-                    bone: '颧骨常显外扩，下颌角棱角分明，眉骨与眶缘发育平缓。',
-                    soft: '单眼皮或内双比例高，常伴有内眦赘皮；鼻梁偏低，鼻头圆润，鼻基底凹陷；软组织相对丰厚。'
+                    bone: t('ethnicity.asianBone'),
+                    soft: t('ethnicity.asianSoft')
                   }
                 },
                 {
-                  ethnicity: '白人',
+                  ethnicity: t('ethnicity.white'),
                   image: '/white_facial_features/3.png',
                   features: {
-                    bone: '眉骨与眶缘极为突出，颧骨转向侧面，下颌骨线条分明，下巴尖翘。',
-                    soft: '皮肤较薄，脂肪含量少，容易出现皱纹和骨相显露；鼻梁高挺，鼻翼窄，嘴唇偏薄；双眼皮宽而深。'
+                    bone: t('ethnicity.whiteBone'),
+                    soft: t('ethnicity.whiteSoft')
                   }
                 }
               ].map((item) => (
@@ -823,11 +829,11 @@ function App() {
                   >
                     <div className="text-left space-y-3 px-4 py-2">
                       <div>
-                        <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>1. 骨骼特征：</h4>
+                        <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>1. {t('ethnicity.boneFeatures')}</h4>
                         <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>{item.features.bone}</p>
                       </div>
                       <div>
-                        <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>2. 软组织特征：</h4>
+                        <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>2. {t('ethnicity.softTissue')}</h4>
                         <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>{item.features.soft}</p>
                       </div>
                     </div>
@@ -840,27 +846,27 @@ function App() {
               <div className="space-y-4">
                 {[
                   {
-                    ethnicity: '黑人',
+                    ethnicity: t('ethnicity.black'),
                     image: '/black_facial_features/1_(1).png',
                     features: {
-                      bone: '面中部常显前突，但鼻骨低平；眶距可能较宽；下颌骨发达，嘴唇极厚且唇红外翻。',
-                      soft: '皮肤较厚，不易长皱纹但需关注瘢痕愈合；鼻翼宽大，鼻孔扁平，鼻小柱短；多为双眼皮但形态深邃。'
+                      bone: t('ethnicity.blackBone'),
+                      soft: t('ethnicity.blackSoft')
                     }
                   },
                   {
-                    ethnicity: '黄种人',
+                    ethnicity: t('ethnicity.asian'),
                     image: '/east_asian_facial_features/1_(2).png',
                     features: {
-                      bone: '颧骨常显外扩，下颌角棱角分明，眉骨与眶缘发育平缓。',
-                      soft: '单眼皮或内双比例高，常伴有内眦赘皮；鼻梁偏低，鼻头圆润，鼻基底凹陷；软组织相对丰厚。'
+                      bone: t('ethnicity.asianBone'),
+                      soft: t('ethnicity.asianSoft')
                     }
                   },
                   {
-                    ethnicity: '白人',
+                    ethnicity: t('ethnicity.white'),
                     image: '/white_facial_features/3.png',
                     features: {
-                      bone: '眉骨与眶缘极为突出，颧骨转向侧面，下颌骨线条分明，下巴尖翘。',
-                      soft: '皮肤较薄，脂肪含量少，容易出现皱纹和骨相显露；鼻梁高挺，鼻翼窄，嘴唇偏薄；双眼皮宽而深。'
+                      bone: t('ethnicity.whiteBone'),
+                      soft: t('ethnicity.whiteSoft')
                     }
                   }
                 ].map((item) => (
@@ -890,11 +896,11 @@ function App() {
                     >
                       <div className="text-left space-y-2 pt-2 border-t border-gray-100">
                         <div>
-                          <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>1. 骨骼特征：</h4>
+                          <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>1. {t('ethnicity.boneFeatures')}</h4>
                           <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>{item.features.bone}</p>
                         </div>
                         <div>
-                          <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>2. 软组织特征：</h4>
+                          <h4 className="text-xs font-medium mb-1" style={{color: '#1F1F1F'}}>2. {t('ethnicity.softTissue')}</h4>
                           <p className="text-xs leading-relaxed" style={{color: '#6B7280'}}>{item.features.soft}</p>
                         </div>
                       </div>
@@ -905,7 +911,7 @@ function App() {
             </div>
 
             <p className="text-center text-sm tracking-wide mt-8" style={{color: '#6B7280'}}>
-              了解你的面部特征，立即开始行之有效的行动来提升你的容颜
+              {t('ethnicity.cta')}
             </p>
             </div>
           </div>
@@ -914,9 +920,9 @@ function App() {
 
       <section className="py-8 md:py-24 px-6 md:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>获取你的手术计划</h2>
+          <h2 className="text-2xl md:text-3xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>{t('plan.title')}</h2>
           <p className="text-sm text-center mb-8 md:mb-16 tracking-wide" style={{color: '#6B7280'}}>
-            了解你的面部特征，立即开始行之有效的行动来提升你的容颜
+            {t('plan.subtitle')}
           </p>
 
           {/* Mobile layout - compact version */}
@@ -925,28 +931,28 @@ function App() {
               <div className="flex justify-center gap-6">
                 <div className="overflow-hidden relative w-40" style={{backgroundColor: '#F3F4F6'}}>
                   <div className="h-36 flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                    <span className="text-gray-500 text-xs">术前照片 (Before)</span>
+                    <span className="text-gray-500 text-xs">{t('plan.before')}</span>
                   </div>
                   <div className="absolute bottom-2 left-2 bg-white px-2 py-0.5">
-                    <span className="text-xs text-gray-600">BEFORE</span>
+                    <span className="text-xs text-gray-600">{t('plan.beforeLabel')}</span>
                   </div>
                 </div>
                 <div className="overflow-hidden relative w-40" style={{backgroundColor: '#F3F4F6'}}>
                   <div className="h-36 flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                    <span className="text-gray-500 text-xs">术后照片 (After)</span>
+                    <span className="text-gray-500 text-xs">{t('plan.after')}</span>
                   </div>
                   <div className="absolute bottom-2 left-2 bg-white px-2 py-0.5">
-                    <span className="text-xs text-gray-600">AFTER</span>
+                    <span className="text-xs text-gray-600">{t('plan.afterLabel')}</span>
                   </div>
                 </div>
               </div>
 
               <div className="max-w-md mx-auto space-y-3">
                 {[
-                  { num: '01', title: '获取专家面部分析' },
-                  { num: '02', title: '你最美的样子' },
-                  { num: '03', title: '获取你的专属焕颜方案' },
-                  { num: '04', title: '见证显著效果' }
+                  { num: '01', title: t('plan.step1') },
+                  { num: '02', title: t('plan.step2') },
+                  { num: '03', title: t('plan.step3') },
+                  { num: '04', title: t('plan.step4') }
                 ].map((item) => (
                   <div key={item.num} className="flex items-center gap-3 pb-3 border-b border-gray-200 last:border-0">
                     <div className="text-base font-light flex-shrink-0" style={{color: '#A0A7B5', width: '36px'}}>{item.num}</div>
@@ -971,18 +977,18 @@ function App() {
               </svg>
               <div className="overflow-hidden relative" style={{width: '400px', backgroundColor: '#F3F4F6'}}>
                 <div className="flex items-center justify-center" style={{height: '500px', backgroundColor: '#B9CBDC'}}>
-                  <span className="text-gray-600 text-sm">术前照片 (Before)</span>
+                  <span className="text-gray-600 text-sm">{t('plan.before')}</span>
                 </div>
                 <div className="absolute bottom-4 left-4 bg-white px-3 py-1.5 shadow">
-                  <span className="text-xs font-medium text-gray-700">BEFORE</span>
+                  <span className="text-xs font-medium text-gray-700">{t('plan.beforeLabel')}</span>
                 </div>
               </div>
               <div className="overflow-hidden relative" style={{width: '400px', backgroundColor: '#F3F4F6'}}>
                 <div className="flex items-center justify-center" style={{height: '500px', backgroundColor: '#B9CBDC'}}>
-                  <span className="text-gray-600 text-sm">术后照片 (After)</span>
+                  <span className="text-gray-600 text-sm">{t('plan.after')}</span>
                 </div>
                 <div className="absolute bottom-4 left-4 bg-white px-3 py-1.5 shadow">
-                  <span className="text-xs font-medium text-gray-700">AFTER</span>
+                  <span className="text-xs font-medium text-gray-700">{t('plan.afterLabel')}</span>
                 </div>
               </div>
             </div>
@@ -990,10 +996,10 @@ function App() {
             {/* Steps Section - Single Row */}
             <div className="flex gap-16 justify-center">
               {[
-                { num: '01', title: '获取专家面部分析' },
-                { num: '02', title: '你最美的样子' },
-                { num: '03', title: '获取你的专属焕颜方案' },
-                { num: '04', title: '见证显著效果' }
+                { num: '01', title: t('plan.step1') },
+                { num: '02', title: t('plan.step2') },
+                { num: '03', title: t('plan.step3') },
+                { num: '04', title: t('plan.step4') }
               ].map((item) => (
                 <div key={item.num} className="flex flex-col items-center text-center">
                   <div className="text-4xl font-extralight mb-4" style={{color: '#D1D5DB'}}>{item.num}</div>
@@ -1009,10 +1015,10 @@ function App() {
         <div className="max-w-7xl mx-auto py-12 md:py-20 px-4">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F2937'}}>
-              你的脸，独一无二的解法
+              {t('analysis.title')}
             </h2>
             <p className="text-base md:text-lg font-light tracking-wide" style={{color: '#6B7280'}}>
-              基于人种骨架、动态肌肉与心理诉求的六维面诊分析法
+              {t('analysis.subtitle')}
             </p>
           </div>
         </div>
@@ -1064,19 +1070,19 @@ function App() {
               {[
                 {
                   image: '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
-                  title: '1. 轮廓与骨相维度'
+                  title: t('analysis.dimension1')
                 },
                 {
                   image: '/Gemini_Generated_Image_pf7kappf7kappf7k.png',
-                  title: '2. 软组织与皮相维度'
+                  title: t('analysis.dimension2')
                 },
                 {
                   image: '/Gemini_Generated_Image_a16ssqa16ssqa16s.png',
-                  title: '3. 五官局部维度'
+                  title: t('analysis.dimension3')
                 },
                 {
                   image: '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png',
-                  title: '4. 动态与肌肉维度'
+                  title: t('analysis.dimension4')
                 }
               ].map((item, index) => (
                 <div key={index} className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm border" style={{borderColor: '#E5E7EB', minHeight: '200px'}}>
@@ -1100,9 +1106,9 @@ function App() {
       <section className="py-12 md:py-24 px-4 md:px-8" style={{backgroundColor: '#FFFFFF'}}>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-light text-center mb-3 tracking-wide" style={{color: '#1F1F1F'}}>
-            有没有想过你的脸会是什么样子
+            {t('vision.title')}
           </h2>
-          <p className="text-sm md:text-base text-center mb-8 md:mb-16 tracking-wide" style={{color: '#6B7280'}}>展望未来</p>
+          <p className="text-sm md:text-base text-center mb-8 md:mb-16 tracking-wide" style={{color: '#6B7280'}}>{t('vision.subtitle')}</p>
 
           <div className="mb-8 md:mb-16 mx-auto w-full md:w-4/5 lg:w-3/4">
             <div className="h-80 md:h-[500px] lg:h-[700px]">
@@ -1119,7 +1125,7 @@ function App() {
       <section className="py-8 md:py-24 px-3 md:px-12" style={{backgroundColor: '#FFFFFF'}}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-light text-center mb-6 md:mb-8" style={{color: '#1F2937'}}>
-            真实案例对比
+            {t('realCases.title')}
           </h2>
 
           {/* Desktop layout - two cases side by side */}
@@ -1128,10 +1134,10 @@ function App() {
             <div className="bg-white rounded-lg overflow-hidden shadow-lg">
               <div className="grid grid-cols-2 gap-0">
                 <div className="aspect-[3/4] flex items-center justify-center" style={{backgroundColor: '#E5E7EB'}}>
-                  <span className="text-gray-600 text-sm font-light">手术前</span>
+                  <span className="text-gray-600 text-sm font-light">{t('realCases.before')}</span>
                 </div>
                 <div className="aspect-[3/4] flex items-center justify-center" style={{backgroundColor: '#D1D5DB'}}>
-                  <span className="text-gray-700 text-sm font-light">手术后</span>
+                  <span className="text-gray-700 text-sm font-light">{t('realCases.after')}</span>
                 </div>
               </div>
 
@@ -1160,10 +1166,10 @@ function App() {
             <div className="bg-white rounded-lg overflow-hidden shadow-lg">
               <div className="grid grid-cols-2 gap-0">
                 <div className="aspect-[3/4] flex items-center justify-center" style={{backgroundColor: '#E5E7EB'}}>
-                  <span className="text-gray-600 text-sm font-light">手术前</span>
+                  <span className="text-gray-600 text-sm font-light">{t('realCases.before')}</span>
                 </div>
                 <div className="aspect-[3/4] flex items-center justify-center" style={{backgroundColor: '#D1D5DB'}}>
-                  <span className="text-gray-700 text-sm font-light">手术后</span>
+                  <span className="text-gray-700 text-sm font-light">{t('realCases.after')}</span>
                 </div>
               </div>
 
@@ -1196,10 +1202,10 @@ function App() {
               {/* Before/After Images */}
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="aspect-[3/4] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                  <span className="text-gray-600 text-xs">手术前</span>
+                  <span className="text-gray-600 text-xs">{t('realCases.before')}</span>
                 </div>
                 <div className="aspect-[3/4] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#A0A7B5'}}>
-                  <span className="text-white text-xs">手术后</span>
+                  <span className="text-white text-xs">{t('realCases.after')}</span>
                 </div>
               </div>
 
@@ -1207,7 +1213,7 @@ function App() {
               <div className="relative mb-8">
                 <div className="absolute left-0 right-0 top-1/2 h-px" style={{backgroundColor: '#D1D5DB', transform: 'translateY(-50%)'}}></div>
                 <div className="relative text-center">
-                  <span className="inline-block px-4 py-1 text-sm font-light" style={{backgroundColor: '#F3F4F6', color: '#6B7280'}}>8 个月</span>
+                  <span className="inline-block px-4 py-1 text-sm font-light" style={{backgroundColor: '#F3F4F6', color: '#6B7280'}}>8 {t('realCases.months')}</span>
                 </div>
               </div>
 
@@ -1241,10 +1247,10 @@ function App() {
               {/* Before/After Images */}
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="aspect-[3/4] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#B9CBDC'}}>
-                  <span className="text-gray-600 text-xs">手术前</span>
+                  <span className="text-gray-600 text-xs">{t('realCases.before')}</span>
                 </div>
                 <div className="aspect-[3/4] overflow-hidden flex items-center justify-center" style={{backgroundColor: '#A0A7B5'}}>
-                  <span className="text-white text-xs">手术后</span>
+                  <span className="text-white text-xs">{t('realCases.after')}</span>
                 </div>
               </div>
 
@@ -1252,7 +1258,7 @@ function App() {
               <div className="relative mb-8">
                 <div className="absolute left-0 right-0 top-1/2 h-px" style={{backgroundColor: '#D1D5DB', transform: 'translateY(-50%)'}}></div>
                 <div className="relative text-center">
-                  <span className="inline-block px-4 py-1 text-sm font-light" style={{backgroundColor: '#F3F4F6', color: '#6B7280'}}>6 个月</span>
+                  <span className="inline-block px-4 py-1 text-sm font-light" style={{backgroundColor: '#F3F4F6', color: '#6B7280'}}>6 {t('realCases.months')}</span>
                 </div>
               </div>
 
@@ -1291,17 +1297,17 @@ function App() {
           {/* Mobile title */}
           <div className="md:hidden">
             <h2 className="text-2xl font-light text-center mb-3 tracking-wide px-6" style={{color: '#1F1F1F'}}>
-              客户对我们的评价
+              {t('testimonials.title')}
             </h2>
-            <p className="text-sm text-center mb-2" style={{color: '#6B7280'}}>我们的客户遍布全世界</p>
-            <p className="text-xs text-center mb-6" style={{color: '#6B7280'}}>让客户满意是我们的永恒的追求</p>
+            <p className="text-sm text-center mb-2" style={{color: '#6B7280'}}>{t('testimonials.mapTitle')}</p>
+            <p className="text-xs text-center mb-6" style={{color: '#6B7280'}}>{t('testimonials.mapSubtitle')}</p>
             <div className="w-20 h-px mx-auto mb-8" style={{backgroundColor: '#A0A7B5'}}></div>
           </div>
 
           {/* Desktop title */}
           <div className="hidden md:block">
             <h2 className="text-3xl font-light text-center mb-4 tracking-wide px-12" style={{color: '#1F1F1F'}}>
-              客户对我们的评价
+              {t('testimonials.title')}
             </h2>
             <div className="w-20 h-px mx-auto mb-6" style={{backgroundColor: '#A0A7B5'}}></div>
           </div>
@@ -1310,8 +1316,8 @@ function App() {
           <div className="hidden md:block max-w-7xl mx-auto mb-8 px-12">
             <div className="grid grid-cols-12 gap-6 items-center">
               <div className="col-span-3">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">我们的客户遍布全世界</h3>
-                <p className="text-sm text-gray-600">让客户满意是我们的永恒的追求</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">{t('testimonials.mapTitle')}</h3>
+                <p className="text-sm text-gray-600">{t('testimonials.mapSubtitle')}</p>
               </div>
               <div className="col-span-9 col-start-4">
                 <div className="w-full h-[36rem] overflow-hidden">
@@ -1460,14 +1466,14 @@ function App() {
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full -ml-24 -mb-24"></div>
 
             <div className="relative">
-              <h2 className="text-2xl md:text-3xl font-light text-white mb-8 md:mb-12 tracking-wide">今天开始你的蜕变之旅</h2>
+              <h2 className="text-2xl md:text-3xl font-light text-white mb-8 md:mb-12 tracking-wide">{t('journey.title')}</h2>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-8 md:mb-12">
                 {[
-                  '点击回答问题',
-                  '上传图片',
-                  '为你定制专属方案',
-                  '为你开启旅途'
+                  t('journey.step1'),
+                  t('journey.step2'),
+                  t('journey.step3'),
+                  t('journey.step4')
                 ].map((step, index) => (
                   <div key={index} className="bg-white bg-opacity-10 backdrop-blur-sm p-6 md:p-8 text-white">
                     <div className="text-xl md:text-2xl font-light mb-2 md:mb-3">{index + 1}</div>
@@ -1478,7 +1484,7 @@ function App() {
 
               <div className="flex justify-center">
                 <button className="px-8 md:px-10 py-2.5 md:py-3 bg-white text-xs md:text-sm font-light transition tracking-wider" style={{color: '#1C2B3A'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F3F4F6'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FFFFFF'}>
-                  开启你的蜕变之旅
+                  {t('journey.cta')}
                 </button>
               </div>
             </div>
@@ -1491,12 +1497,12 @@ function App() {
           <div className="flex items-center justify-center gap-2 mb-6">
             <span className="text-xl font-light tracking-widest">YANORA</span>
           </div>
-          <p className="text-sm mb-10 font-light tracking-wide" style={{color: '#A0A7B5'}}>专业医美整形，成就更美的你</p>
+          <p className="text-sm mb-10 font-light tracking-wide" style={{color: '#A0A7B5'}}>{t('footer.tagline')}</p>
           <div className="flex justify-center gap-12 text-xs font-light" style={{color: '#A0A7B5'}}>
-            <a href="#" className="hover:text-white transition">关于我们</a>
-            <a href="#" className="hover:text-white transition">联系方式</a>
-            <a href="#" className="hover:text-white transition">隐私政策</a>
-            <a href="#" className="hover:text-white transition">服务条款</a>
+            <a href="#" className="hover:text-white transition">{t('footer.about')}</a>
+            <a href="#" className="hover:text-white transition">{t('footer.contact')}</a>
+            <a href="#" className="hover:text-white transition">{t('footer.privacy')}</a>
+            <a href="#" className="hover:text-white transition">{t('footer.terms')}</a>
           </div>
         </div>
       </footer>
