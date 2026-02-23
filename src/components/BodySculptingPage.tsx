@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import ImageCompareSlider from './ImageCompareSlider';
+import CTASection from './CTASection';
+import Footer from './Footer';
 
 function BodySculptingPage() {
   const navigate = useNavigate();
@@ -427,26 +429,9 @@ function BodySculptingPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-20 px-6 md:px-12" style={{backgroundColor: '#1C2B3A'}}>
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-light mb-6 text-white tracking-wide">
-            开启你的塑形之旅
-          </h2>
-          <p className="text-sm md:text-base mb-8 text-white opacity-80">
-            专业医师团队为你提供一对一咨询服务
-          </p>
-          <button
-            onClick={() => navigate('/booking')}
-            className="px-12 py-3 bg-white text-sm transition tracking-wider"
-            style={{color: '#1C2B3A'}}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F3F4F6'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FFFFFF'}
-          >
-            立即预约咨询
-          </button>
-        </div>
-      </section>
+      <CTASection />
+
+      <Footer />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabase';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ImageCompareSlider from './ImageCompareSlider';
+import CTASection from './CTASection';
 
 interface CaseStudy {
   id: string;
@@ -176,25 +177,7 @@ function CasesPage() {
         </div>
       </section>
 
-      <section className="py-16 px-6 md:px-12" style={{backgroundColor: '#F9FAFB'}}>
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-light mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-            开启你的美丽蜕变
-          </h2>
-          <p className="text-base mb-8 tracking-wide" style={{color: '#6B7280'}}>
-            专业团队为你量身定制专属方案
-          </p>
-          <button
-            onClick={() => navigate('/booking')}
-            className="px-12 py-4 text-white text-sm transition tracking-wider"
-            style={{backgroundColor: '#1C2B3A'}}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
-          >
-            立即预约咨询
-          </button>
-        </div>
-      </section>
+      <CTASection />
 
       <Footer />
     </div>

@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import CTASection from './CTASection';
+import Footer from './Footer';
 
 function InjectionLiftingPage() {
   const navigate = useNavigate();
@@ -79,19 +81,12 @@ function InjectionLiftingPage() {
             </div>
           </div>
 
-          <div className="mt-16 text-center">
-            <button
-              onClick={() => navigate('/booking')}
-              className="px-12 py-3 text-white text-sm transition tracking-wider"
-              style={{backgroundColor: '#1C2B3A'}}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
-            >
-              立即预约咨询
-            </button>
-          </div>
         </div>
       </section>
+
+      <CTASection />
+
+      <Footer />
     </div>
   );
 }

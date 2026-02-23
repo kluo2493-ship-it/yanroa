@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ImageCompareSlider from './ImageCompareSlider';
+import CTASection from './CTASection';
 
 function FacialContourPage() {
   const navigate = useNavigate();
@@ -408,25 +409,10 @@ function FacialContourPage() {
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <button
-              onClick={() => navigate('/booking')}
-              className="px-12 md:px-16 py-4 text-white text-sm md:text-base transition tracking-wider"
-              style={{backgroundColor: '#1C2B3A'}}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#101D29';
-                e.currentTarget.style.transform = 'scale(1.02)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#1C2B3A';
-                e.currentTarget.style.transform = 'scale(1)';
-              }}
-            >
-              预约专属咨询
-            </button>
-          </div>
         </div>
       </section>
+
+      <CTASection />
 
       <Footer />
     </div>

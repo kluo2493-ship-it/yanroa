@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ImageCompareSlider from './ImageCompareSlider';
+import CTASection from './CTASection';
 
 function HairTransplantPage() {
   const navigate = useNavigate();
@@ -504,25 +505,7 @@ function HairTransplantPage() {
         </div>
       </section>
 
-      <section className="py-20 px-6 md:px-12">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-            开启你的植发之旅
-          </h2>
-          <p className="text-base md:text-lg mb-10 leading-relaxed" style={{color: '#6B7280'}}>
-            专业医师一对一咨询，为您定制专属植发方案
-          </p>
-          <button
-            onClick={() => navigate('/booking')}
-            className="px-12 py-4 text-white text-sm transition tracking-wider"
-            style={{backgroundColor: '#1C2B3A'}}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101D29'}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#1C2B3A'}
-          >
-            立即预约咨询
-          </button>
-        </div>
-      </section>
+      <CTASection />
 
       <Footer />
     </div>
