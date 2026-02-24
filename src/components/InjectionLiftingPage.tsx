@@ -32,15 +32,15 @@ function InjectionLiftingPage() {
           </button>
 
           {/* Before/After Images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-12 max-w-4xl mx-auto">
-            <div className="overflow-hidden rounded-lg shadow-md">
+          <div className="grid grid-cols-2 gap-6 md:gap-8 mt-12 max-w-4xl mx-auto bg-white">
+            <div className="overflow-hidden bg-white">
               <img
                 src="/3d931fc8d4b7d9ba6357f51f842da33d.jpg"
                 alt="面部年轻化效果展示1"
                 className="w-full h-auto object-cover"
               />
             </div>
-            <div className="overflow-hidden rounded-lg shadow-md">
+            <div className="overflow-hidden bg-white">
               <img
                 src="/6492d5ffd9ae5616e415a8afbe984073.jpg"
                 alt="面部年轻化效果展示2"
