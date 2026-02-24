@@ -3,9 +3,11 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import ImageCompareSlider from './ImageCompareSlider';
 import CTASection from './CTASection';
+import { useState } from 'react';
 
 function HairTransplantPage() {
   const navigate = useNavigate();
+  const [activeService, setActiveService] = useState<'fue' | 'hairline' | 'eyebrow' | 'beard'>('fue');
 
   const caseStudies = [
     {
@@ -332,96 +334,190 @@ function HairTransplantPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
-              我们提供的植发服务
+              服务项目
             </h2>
             <p className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed" style={{color: '#6B7280'}}>
               专业团队，先进技术，为您提供个性化的植发解决方案
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white p-8 shadow-sm border" style={{borderColor: '#E5E7EB'}}>
-              <h3 className="text-xl font-normal mb-4" style={{color: '#1C2B3A'}}>FUE无痕植发</h3>
-              <p className="text-sm mb-6 leading-relaxed" style={{color: '#6B7280'}}>
-                采用先进的毛囊单位提取技术，逐个提取健康毛囊进行种植，无需开刀，不留疤痕，恢复快，效果自然。
-              </p>
-              <ul className="space-y-3 text-sm" style={{color: '#6B7280'}}>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>适合大面积脱发</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>毛囊存活率高达95%以上</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>术后3-5天即可正常工作</span>
-                </li>
-              </ul>
-            </div>
+          {/* Service Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
+            {[
+              { key: 'fue' as const, title: 'FUE无痕植发', subtitle: '无痕迹恢复快' },
+              { key: 'hairline' as const, title: '发际线调整', subtitle: '精准设计提升' },
+              { key: 'eyebrow' as const, title: '眉毛种植', subtitle: '立体自然眉形' },
+              { key: 'beard' as const, title: '胡须种植', subtitle: '塑造男性魅力' },
+            ].map((service) => (
+              <button
+                key={service.key}
+                onClick={() => setActiveService(service.key)}
+                className="p-6 md:p-8 border transition-all duration-300 text-center"
+                style={{
+                  backgroundColor: activeService === service.key ? '#1C2B3A' : 'white',
+                  borderColor: activeService === service.key ? '#1C2B3A' : '#E5E7EB',
+                  color: activeService === service.key ? 'white' : '#1F1F1F'
+                }}
+                onMouseEnter={(e) => {
+                  if (activeService !== service.key) {
+                    e.currentTarget.style.borderColor = '#1C2B3A';
+                    e.currentTarget.style.transform = 'translateY(-4px)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeService !== service.key) {
+                    e.currentTarget.style.borderColor = '#E5E7EB';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }
+                }}
+              >
+                <h3 className="text-base md:text-lg font-normal mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-xs md:text-sm font-light opacity-80">
+                  {service.subtitle}
+                </p>
+              </button>
+            ))}
+          </div>
 
-            <div className="bg-white p-8 shadow-sm border" style={{borderColor: '#E5E7EB'}}>
-              <h3 className="text-xl font-normal mb-4" style={{color: '#1C2B3A'}}>发际线调整</h3>
-              <p className="text-sm mb-6 leading-relaxed" style={{color: '#6B7280'}}>
-                根据面部黄金比例设计发际线，优化面部轮廓，提升整体气质。适合发际线后移、M型脱发等情况。
+          {/* Service Details */}
+          <div className="bg-gray-50 p-8 md:p-12 border" style={{borderColor: '#E5E7EB'}}>
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-xl md:text-2xl font-light mb-4" style={{color: '#1F1F1F'}}>
+                {activeService === 'fue' && 'FUE无痕植发'}
+                {activeService === 'hairline' && '发际线调整'}
+                {activeService === 'eyebrow' && '眉毛种植'}
+                {activeService === 'beard' && '胡须种植'}
+              </h3>
+              <p className="text-sm md:text-base mb-8 leading-relaxed" style={{color: '#6B7280'}}>
+                {activeService === 'fue' && '采用先进的毛囊单位提取技术，逐个提取健康毛囊进行种植，无需开刀，不留疤痕，恢复快，效果自然。'}
+                {activeService === 'hairline' && '根据面部黄金比例设计发际线，优化面部轮廓，提升整体气质。适合发际线后移、M型脱发等情况。'}
+                {activeService === 'eyebrow' && '针对眉毛稀疏、缺失等问题，通过精细种植技术，打造立体自然的眉形，提升面部精致度。'}
+                {activeService === 'beard' && '为胡须稀疏的男士提供专业种植服务，塑造阳刚魅力，提升男性气质。'}
               </p>
-              <ul className="space-y-3 text-sm" style={{color: '#6B7280'}}>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>个性化设计方案</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>符合面部美学比例</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>显年轻，提升颜值</span>
-                </li>
-              </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {activeService === 'fue' && ['适合大面积脱发', '毛囊存活率高达95%以上', '术后3-5天即可正常工作', '无痕迹自然美观'].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-white border"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
+                    <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
+                  </div>
+                ))}
+                {activeService === 'hairline' && ['个性化设计方案', '符合面部美学比例', '显年轻，提升颜值', '精准种植自然流畅'].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-white border"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
+                    <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
+                  </div>
+                ))}
+                {activeService === 'eyebrow' && ['根据脸型设计眉形', '一根一根精细种植', '永久保持，无需化妆', '立体自然眉形'].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-white border"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
+                    <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
+                  </div>
+                ))}
+                {activeService === 'beard' && ['多种胡型可选', '生长方向精确控制', '增强男性魅力', '自然浓密效果'].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-white border"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
+                    <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
 
-            <div className="bg-white p-8 shadow-sm border" style={{borderColor: '#E5E7EB'}}>
-              <h3 className="text-xl font-normal mb-4" style={{color: '#1C2B3A'}}>眉毛种植</h3>
-              <p className="text-sm mb-6 leading-relaxed" style={{color: '#6B7280'}}>
-                针对眉毛稀疏、缺失等问题，通过精细种植技术，打造立体自然的眉形，提升面部精致度。
-              </p>
-              <ul className="space-y-3 text-sm" style={{color: '#6B7280'}}>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>根据脸型设计眉形</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>一根一根精细种植</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>永久保持，无需化妆</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white p-8 shadow-sm border" style={{borderColor: '#E5E7EB'}}>
-              <h3 className="text-xl font-normal mb-4" style={{color: '#1C2B3A'}}>胡须种植</h3>
-              <p className="text-sm mb-6 leading-relaxed" style={{color: '#6B7280'}}>
-                为胡须稀疏的男士提供专业种植服务，塑造阳刚魅力，提升男性气质。
-              </p>
-              <ul className="space-y-3 text-sm" style={{color: '#6B7280'}}>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>多种胡型可选</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>生长方向精确控制</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-xs mt-1" style={{color: '#1C2B3A'}}>✓</span>
-                  <span>增强男性魅力</span>
-                </li>
-              </ul>
+          {/* Images Section */}
+          <div className="bg-white p-8 md:p-12 border mt-8" style={{borderColor: '#E5E7EB'}}>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {activeService === 'fue' && [
+                  '/Gemini_Generated_Image_94iwds94iwds94iw.png',
+                  '/Gemini_Generated_Image_iubeodiubeodiube.png',
+                  '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
+                  '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png'
+                ].map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`FUE无痕植发 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                ))}
+                {activeService === 'hairline' && [
+                  '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
+                  '/Gemini_Generated_Image_pf7kappf7kappf7k.png',
+                  '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png',
+                  '/Gemini_Generated_Image_a16ssqa16ssqa16s.png'
+                ].map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`发际线调整 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                ))}
+                {activeService === 'eyebrow' && [
+                  '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
+                  '/Gemini_Generated_Image_94iwds94iwds94iw.png',
+                  '/Gemini_Generated_Image_iubeodiubeodiube.png',
+                  '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png'
+                ].map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`眉毛种植 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                ))}
+                {activeService === 'beard' && [
+                  '/Gemini_Generated_Image_pf7kappf7kappf7k.png',
+                  '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
+                  '/Gemini_Generated_Image_a16ssqa16ssqa16s.png',
+                  '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png'
+                ].map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`胡须种植 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

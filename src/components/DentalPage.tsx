@@ -27,6 +27,12 @@ function DentalPage() {
         '激光美白',
         '家用美白套装',
         '深层色素去除'
+      ],
+      images: [
+        '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png',
+        '/Gemini_Generated_Image_94iwds94iwds94iw.png',
+        '/Gemini_Generated_Image_iubeodiubeodiube.png',
+        '/Gemini_Generated_Image_u1lac1u1lac1u1la.png'
       ]
     },
     orthodontics: {
@@ -37,6 +43,12 @@ function DentalPage() {
         '传统金属矫正',
         '陶瓷自锁矫正',
         '快速矫正技术'
+      ],
+      images: [
+        '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
+        '/Gemini_Generated_Image_pf7kappf7kappf7k.png',
+        '/Gemini_Generated_Image_a16ssqa16ssqa16s.png',
+        '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png'
       ]
     },
     veneers: {
@@ -47,6 +59,12 @@ function DentalPage() {
         '超薄贴面',
         '美学贴面设计',
         '无磨牙贴面'
+      ],
+      images: [
+        '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png',
+        '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
+        '/Gemini_Generated_Image_94iwds94iwds94iw.png',
+        '/Gemini_Generated_Image_iubeodiubeodiube.png'
       ]
     },
     implants: {
@@ -57,6 +75,12 @@ function DentalPage() {
         '延期种植',
         '全口种植修复',
         '数字化种植导板'
+      ],
+      images: [
+        '/3d931fc8d4b7d9ba6357f51f842da33d.jpg',
+        '/6492d5ffd9ae5616e415a8afbe984073.jpg',
+        '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
+        '/Gemini_Generated_Image_pf7kappf7kappf7k.png'
       ]
     },
     cleaning: {
@@ -67,6 +91,12 @@ function DentalPage() {
         '喷砂洁牙',
         '牙周深度清洁',
         '抛光护理'
+      ],
+      images: [
+        '/Gemini_Generated_Image_a16ssqa16ssqa16s.png',
+        '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png',
+        '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
+        '/Gemini_Generated_Image_pf7kappf7kappf7k.png'
       ]
     },
     cosmetic: {
@@ -77,6 +107,12 @@ function DentalPage() {
         '牙龈美学塑形',
         '咬合重建',
         'DSD数字化设计'
+      ],
+      images: [
+        '/Gemini_Generated_Image_94iwds94iwds94iw.png',
+        '/Gemini_Generated_Image_iubeodiubeodiube.png',
+        '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
+        '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png'
       ]
     }
   };
@@ -182,6 +218,27 @@ function DentalPage() {
                   >
                     <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
                     <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{technique}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Images Section */}
+          <div className="bg-white p-8 md:p-12 border mt-8" style={{borderColor: '#E5E7EB'}}>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {serviceDetails[activeService].images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`${serviceDetails[activeService].title} 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
                   </div>
                 ))}
               </div>

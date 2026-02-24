@@ -178,6 +178,104 @@ function InjectionLiftingPage() {
             </div>
           </div>
 
+          {/* Images Section */}
+          <div className="bg-white p-8 md:p-12 border mt-8" style={{borderColor: '#E5E7EB'}}>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {activeService === 'botox' && [
+                  '/3d931fc8d4b7d9ba6357f51f842da33d.jpg',
+                  '/6492d5ffd9ae5616e415a8afbe984073.jpg',
+                  '/Gemini_Generated_Image_94iwds94iwds94iw.png',
+                  '/Gemini_Generated_Image_iubeodiubeodiube.png'
+                ].map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`肉毒素注射 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                ))}
+                {activeService === 'fillers' && [
+                  '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
+                  '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png',
+                  '/3d931fc8d4b7d9ba6357f51f842da33d.jpg',
+                  '/6492d5ffd9ae5616e415a8afbe984073.jpg'
+                ].map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`玻尿酸填充 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                ))}
+                {activeService === 'midface' && [
+                  '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
+                  '/Gemini_Generated_Image_pf7kappf7kappf7k.png',
+                  '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png',
+                  '/Gemini_Generated_Image_a16ssqa16ssqa16s.png'
+                ].map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`面中三件套提升 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                ))}
+                {activeService === 'smas' && [
+                  '/6492d5ffd9ae5616e415a8afbe984073.jpg',
+                  '/3d931fc8d4b7d9ba6357f51f842da33d.jpg',
+                  '/Gemini_Generated_Image_94iwds94iwds94iw.png',
+                  '/Gemini_Generated_Image_iubeodiubeodiube.png'
+                ].map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`SMAS筋膜提升 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                ))}
+                {activeService === 'single' && [
+                  '/Gemini_Generated_Image_a16ssqa16ssqa16s.png',
+                  '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png',
+                  '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
+                  '/Gemini_Generated_Image_pf7kappf7kappf7k.png'
+                ].map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`单部位提升 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="mt-16 md:mt-24 pt-12 md:pt-16 border-t" style={{borderColor: '#E5E7EB'}}>
             <h2 className="text-2xl md:text-3xl font-light mb-8 md:mb-12 text-center" style={{color: '#1F1F1F'}}>为什么选择我们</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
