@@ -30,21 +30,35 @@ function HairTransplantPage() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0" style={{backgroundColor: '#1C2B3A'}}>
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: 'url(/public/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }} />
-        </div>
-        <div className="relative z-10 text-center px-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-6 tracking-wide text-white">
+      <section className="py-16 md:py-20 px-6 md:px-12 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-3xl md:text-5xl font-light mb-6 leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>
             植发
           </h1>
-          <p className="text-lg md:text-xl text-white opacity-90 max-w-2xl mx-auto tracking-wide">
+          <p className="text-sm md:text-base font-light leading-relaxed mb-8 max-w-2xl mx-auto" style={{color: '#4B5563'}}>
             科学重塑浓密秀发，重拾自信形象
           </p>
+          <button
+            onClick={() => navigate('/booking')}
+            className="px-8 py-3 text-sm md:text-base font-light tracking-wide transition-all duration-300 hover:opacity-80"
+            style={{
+              backgroundColor: '#1C2B3A',
+              color: '#FFFFFF'
+            }}
+          >
+            现在开始探索
+          </button>
+
+          <div className="mt-12 flex justify-center">
+            <img
+              src="/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png"
+              alt="植发效果展示"
+              className="w-full max-w-3xl h-auto object-contain"
+              style={{
+                filter: 'brightness(1.05)',
+              }}
+            />
+          </div>
         </div>
       </section>
 
