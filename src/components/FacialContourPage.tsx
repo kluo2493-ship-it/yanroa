@@ -257,14 +257,14 @@ function FacialContourPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { icon: '□', title: '额头/眉骨', subtitle: '丰额头、眉弓抬高' },
-              { icon: '□', title: '颧骨', subtitle: '颧骨内推/降低' },
-              { icon: '□', title: '下颌线', subtitle: '下颌角截骨、去咬肌' },
-              { icon: '□', title: '下巴', subtitle: '颏成型、假体隆颏' },
+              { icon: '□', title: '额头/眉骨', subtitle: '丰额头、眉弓抬高', image: null },
+              { icon: '□', title: '颧骨', subtitle: '颧骨内推/降低', image: '/3ba84e3181bb4794304515b7dc9aad6f.jpg' },
+              { icon: '□', title: '下颌线', subtitle: '下颌角截骨、去咬肌', image: null },
+              { icon: '□', title: '下巴', subtitle: '颏成型、假体隆颏', image: null },
             ].map((item, index) => (
               <div
                 key={index}
-                className="text-center p-8 md:p-10 border transition-all duration-300"
+                className="border transition-all duration-300 overflow-hidden"
                 style={{borderColor: '#E5E7EB'}}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = '#1C2B3A';
@@ -275,13 +275,27 @@ function FacialContourPage() {
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                <div className="text-5xl mb-6" style={{color: '#1C2B3A'}}>{item.icon}</div>
-                <h3 className="text-base md:text-lg font-normal mb-2" style={{color: '#1F1F1F'}}>
-                  {item.title}
-                </h3>
-                <p className="text-xs md:text-sm font-light" style={{color: '#6B7280'}}>
-                  {item.subtitle}
-                </p>
+                {item.image ? (
+                  <div className="w-full aspect-square overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-full aspect-square flex items-center justify-center text-5xl" style={{color: '#1C2B3A'}}>
+                    {item.icon}
+                  </div>
+                )}
+                <div className="text-center p-6 md:p-8">
+                  <h3 className="text-base md:text-lg font-normal mb-2" style={{color: '#1F1F1F'}}>
+                    {item.title}
+                  </h3>
+                  <p className="text-xs md:text-sm font-light" style={{color: '#6B7280'}}>
+                    {item.subtitle}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
