@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import ImageCompareSlider from './ImageCompareSlider';
 import CTASection from './CTASection';
 import Footer from './Footer';
 import Navbar from './Navbar';
@@ -157,6 +158,76 @@ function InjectionLiftingPage() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Case Studies Section */}
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center">
+            <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
+              真实案例
+            </h2>
+            <p className="text-sm md:text-base font-light" style={{color: '#6B7280'}}>
+              见证专业技术带来的美丽蜕变
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            {[
+              {
+                id: 1,
+                title: '肉毒素除皱案例',
+                category: '面部年轻化',
+                beforeImage: '/3d931fc8d4b7d9ba6357f51f842da33d.jpg',
+                afterImage: '/6492d5ffd9ae5616e415a8afbe984073.jpg',
+                description: '通过精准肉毒素注射，有效减少额头纹和鱼尾纹，面部整体更加年轻自然。'
+              },
+              {
+                id: 2,
+                title: '玻尿酸填充案例',
+                category: '面部塑形',
+                beforeImage: '/6492d5ffd9ae5616e415a8afbe984073.jpg',
+                afterImage: '/3d931fc8d4b7d9ba6357f51f842da33d.jpg',
+                description: '采用玻尿酸填充技术，恢复面部饱满度，改善苹果肌和泪沟，重塑年轻轮廓。'
+              }
+            ].map((caseStudy, index) => (
+              <div key={caseStudy.id} className="bg-white border" style={{borderColor: '#E5E7EB'}}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                  {/* Image Compare Slider */}
+                  <div className="p-6 md:p-8 min-h-[500px] md:min-h-[600px] flex items-center">
+                    <ImageCompareSlider
+                      beforeImage={caseStudy.beforeImage}
+                      afterImage={caseStudy.afterImage}
+                      altBefore={`${caseStudy.title} - 术前`}
+                      altAfter={`${caseStudy.title} - 术后`}
+                    />
+                  </div>
+
+                  {/* Case Details */}
+                  <div className="p-6 md:p-8 flex flex-col justify-center">
+                    <div className="mb-4">
+                      <span
+                        className="inline-block px-4 py-1 text-xs font-light tracking-wider"
+                        style={{backgroundColor: '#1C2B3A', color: 'white'}}
+                      >
+                        {caseStudy.category}
+                      </span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-light mb-4" style={{color: '#1F1F1F'}}>
+                      案例 {String(index + 1).padStart(2, '0')}
+                    </h3>
+                    <h4 className="text-lg md:text-xl font-normal mb-4" style={{color: '#1F1F1F'}}>
+                      {caseStudy.title}
+                    </h4>
+                    <p className="text-sm md:text-base leading-relaxed" style={{color: '#6B7280'}}>
+                      {caseStudy.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
