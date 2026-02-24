@@ -193,6 +193,9 @@ function DentalPage() {
       {/* Why Choose Us Section */}
       <section className="py-20 md:py-28 px-6 md:px-12 bg-gray-50">
         <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-light mb-12 text-center" style={{color: '#1F1F1F'}}>
+            为什么选择我们
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-8 border bg-white transition-all duration-300" style={{borderColor: '#E5E7EB'}}
               onMouseEnter={(e) => {
