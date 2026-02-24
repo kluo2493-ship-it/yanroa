@@ -314,16 +314,14 @@ function BodySculptingPage() {
 
           {/* Service Details */}
           <div className="bg-gray-50 p-8 md:p-12 border" style={{borderColor: '#E5E7EB'}}>
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               <h3 className="text-xl md:text-2xl font-light mb-4" style={{color: '#1F1F1F'}}>
                 {serviceDetails[activeService].title}
               </h3>
               <p className="text-sm md:text-base mb-8 leading-relaxed" style={{color: '#6B7280'}}>
                 {serviceDetails[activeService].description}
               </p>
-
-              {/* Techniques Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {serviceDetails[activeService].techniques.map((technique, index) => (
                   <div
                     key={index}
@@ -335,13 +333,20 @@ function BodySculptingPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
 
-              {/* Images Grid */}
+          {/* Images Section */}
+          <div className="bg-white p-8 md:p-12 border mt-8" style={{borderColor: '#E5E7EB'}}>
+            <div className="max-w-6xl mx-auto">
+              <h3 className="text-lg md:text-xl font-light mb-6" style={{color: '#1F1F1F'}}>
+                案例展示
+              </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {serviceDetails[activeService].images.map((image, index) => (
                   <div
                     key={index}
-                    className="bg-white border overflow-hidden"
+                    className="bg-gray-50 border overflow-hidden"
                     style={{borderColor: '#E5E7EB'}}
                   >
                     <img
