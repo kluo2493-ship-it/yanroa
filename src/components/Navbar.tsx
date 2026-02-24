@@ -386,7 +386,7 @@ function Navbar() {
 
           <div className="p-6 border-t border-white border-opacity-20">
             <div className="mb-4">
-              <LanguageSelector isMobile={true} />
+              <LanguageSelector isMobile={true} isBottomSection={true} />
             </div>
 
             <button

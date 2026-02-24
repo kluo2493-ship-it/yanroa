@@ -4,9 +4,10 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 interface LanguageSelectorProps {
   isMobile?: boolean;
+  isBottomSection?: boolean;
 }
 
-const LanguageSelector = ({ isMobile = false }: LanguageSelectorProps) => {
+const LanguageSelector = ({ isMobile = false, isBottomSection = false }: LanguageSelectorProps) => {
   const { language, setLanguage } = useLanguage();
   const [showMenu, setShowMenu] = useState(false);
 
@@ -33,27 +34,31 @@ const LanguageSelector = ({ isMobile = false }: LanguageSelectorProps) => {
 
   if (isMobile) {
     return (
-      <div className="border-b border-white border-opacity-10">
+      <div className={isBottomSection ? '' : 'border-b border-white border-opacity-10'}>
         <button
           onClick={() => setShowMenu(!showMenu)}
-          className="w-full text-left px-6 py-4 text-white text-sm transition-all flex items-center justify-between"
+          className={`w-full text-left text-white text-sm transition-all flex items-center justify-between ${
+            isBottomSection ? 'px-0 py-3 border border-white border-opacity-40' : 'px-6 py-4'
+          }`}
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
         >
-          <div className="flex items-center gap-2">
+          <div className={`flex items-center gap-2 ${isBottomSection ? 'px-4' : ''}`}>
             <Globe className="w-4 h-4" />
             <span>{currentLanguage?.flag} {currentLanguage?.name}</span>
           </div>
-          <span className="text-xs">{showMenu ? '▲' : '▼'}</span>
+          <span className={`text-xs ${isBottomSection ? 'px-4' : ''}`}>{showMenu ? '▲' : '▼'}</span>
         </button>
         {showMenu && (
-          <div className="bg-black bg-opacity-20">
+          <div className={isBottomSection ? 'mt-2 border border-white border-opacity-40' : 'bg-black bg-opacity-20'}>
             {languages.map((lang) => (
               <button
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
-                className={`w-full text-left px-10 py-3 text-white text-sm transition-all border-l-2 ${
-                  language === lang.code ? 'border-white' : 'border-white border-opacity-30'
+                className={`w-full text-left px-10 py-3 text-white text-sm transition-all ${
+                  isBottomSection ? '' : 'border-l-2'
+                } ${
+                  language === lang.code ? 'border-white' : isBottomSection ? '' : 'border-white border-opacity-30'
                 }`}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
