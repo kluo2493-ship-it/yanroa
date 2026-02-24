@@ -119,26 +119,6 @@ function InjectionLiftingPage() {
                       </div>
                     ))}
                   </div>
-
-                  <button
-                    onClick={() => navigate('/booking')}
-                    className="w-full mt-6 px-6 py-3 text-sm font-light tracking-wide border transition-all duration-300 hover:bg-opacity-90"
-                    style={{
-                      backgroundColor: 'transparent',
-                      borderColor: '#1C2B3A',
-                      color: '#1C2B3A'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#1C2B3A';
-                      e.currentTarget.style.color = '#FFFFFF';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.color = '#1C2B3A';
-                    }}
-                  >
-                    了解更多
-                  </button>
                 </div>
               </div>
             ))}
