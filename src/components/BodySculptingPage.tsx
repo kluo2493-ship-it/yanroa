@@ -339,9 +339,6 @@ function BodySculptingPage() {
           {/* Images Section */}
           <div className="bg-white p-8 md:p-12 border mt-8" style={{borderColor: '#E5E7EB'}}>
             <div className="max-w-6xl mx-auto">
-              <h3 className="text-lg md:text-xl font-light mb-6" style={{color: '#1F1F1F'}}>
-                案例展示
-              </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {serviceDetails[activeService].images.map((image, index) => (
                   <div
