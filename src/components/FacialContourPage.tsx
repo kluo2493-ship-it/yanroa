@@ -373,14 +373,6 @@ function FacialContourPage() {
       {/* Case Studies Section */}
       <section className="py-20 md:py-28 px-6 md:px-12 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-16 text-center">
-            <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
-              真实案例对比
-            </h2>
-            <p className="text-sm md:text-base font-light" style={{color: '#6B7280'}}>
-              见证专业技术带来的美丽蜕变
-            </p>
-          </div>
 
           {/* Desktop layout */}
           <div className="hidden md:block">
