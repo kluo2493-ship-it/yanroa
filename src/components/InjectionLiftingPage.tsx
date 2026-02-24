@@ -51,51 +51,128 @@ function InjectionLiftingPage() {
         </div>
       </section>
 
-      <section className="py-24 px-12">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 md:py-24 px-6 md:px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-light mb-12 md:mb-16 text-center" style={{color: '#1F1F1F'}}>服务项目</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-            <div className="space-y-6">
-              <h2 className="text-2xl font-light" style={{color: '#1F1F1F'}}>服务项目</h2>
-              <ul className="space-y-4 text-base" style={{color: '#4B5563'}}>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1">•</span>
-                  <span>肉毒素注射 - 减少动态皱纹</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1">•</span>
-                  <span>玻尿酸填充 - 恢复面部饱满</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1">•</span>
-                  <span>面部提升 - 改善松弛下垂</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1">•</span>
-                  <span>水光针 - 提升肌肤水润度</span>
-                </li>
-              </ul>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {[
+              {
+                title: '肉毒素注射',
+                description: '精准减少动态皱纹，抚平额头纹、鱼尾纹、川字纹',
+                features: ['即刻见效', '无恢复期', '效果自然']
+              },
+              {
+                title: '玻尿酸填充',
+                description: '恢复面部饱满度，填充凹陷，重塑年轻轮廓',
+                features: ['立体塑形', '持久保湿', '安全可吸收']
+              },
+              {
+                title: '面中三件套提升',
+                description: '针对面中部位进行综合提升，改善苹果肌、泪沟、法令纹',
+                features: ['三位一体', '全面年轻化', '效果显著']
+              },
+              {
+                title: 'SMAS筋膜提升',
+                description: '深层筋膜层提升，从根本改善面部松弛下垂',
+                features: ['深层提升', '持久紧致', '专业技术']
+              },
+              {
+                title: '单部位提升',
+                description: '针对性改善局部问题，精准提升单一部位',
+                features: ['精准定位', '个性化方案', '快速恢复']
+              }
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="group bg-white border hover:shadow-xl transition-all duration-500 overflow-hidden"
+                style={{borderColor: '#E5E7EB'}}
+              >
+                <div className="p-6 md:p-8">
+                  <div className="mb-6">
+                    <div
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
+                      style={{backgroundColor: '#F3F4F6'}}
+                    >
+                      <span className="text-xl md:text-2xl font-light" style={{color: '#1C2B3A'}}>
+                        {index + 1}
+                      </span>
+                    </div>
+                    <h3 className="text-lg md:text-xl font-normal mb-3" style={{color: '#1F1F1F'}}>
+                      {service.title}
+                    </h3>
+                    <p className="text-sm md:text-base font-light leading-relaxed mb-6" style={{color: '#6B7280'}}>
+                      {service.description}
+                    </p>
+                  </div>
 
-            <div className="bg-gray-100 aspect-[4/3] flex items-center justify-center">
-              <span className="text-gray-400">项目展示图片</span>
-            </div>
+                  <div className="space-y-2 pt-4 border-t" style={{borderColor: '#F3F4F6'}}>
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <div
+                          className="w-1.5 h-1.5 rounded-full"
+                          style={{backgroundColor: '#1C2B3A'}}
+                        />
+                        <span className="text-sm font-light" style={{color: '#4B5563'}}>
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() => navigate('/booking')}
+                    className="w-full mt-6 px-6 py-3 text-sm font-light tracking-wide border transition-all duration-300 hover:bg-opacity-90"
+                    style={{
+                      backgroundColor: 'transparent',
+                      borderColor: '#1C2B3A',
+                      color: '#1C2B3A'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = '#1C2B3A';
+                      e.currentTarget.style.color = '#FFFFFF';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                      e.currentTarget.style.color = '#1C2B3A';
+                    }}
+                  >
+                    了解更多
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="border-t pt-12" style={{borderColor: '#E5E7EB'}}>
-            <h2 className="text-2xl font-light mb-8" style={{color: '#1F1F1F'}}>为什么选择我们</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6" style={{backgroundColor: '#F3F4F6'}}>
-                <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>无创安全</h3>
-                <p className="text-sm" style={{color: '#6B7280'}}>无需手术，安全可靠</p>
+          <div className="mt-16 md:mt-24 pt-12 md:pt-16 border-t" style={{borderColor: '#E5E7EB'}}>
+            <h2 className="text-2xl md:text-3xl font-light mb-8 md:mb-12 text-center" style={{color: '#1F1F1F'}}>为什么选择我们</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              <div className="text-center p-6 md:p-8 bg-white border transition-all duration-300 hover:shadow-lg" style={{borderColor: '#E5E7EB'}}>
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto mb-4 md:mb-6 flex items-center justify-center" style={{backgroundColor: '#F3F4F6'}}>
+                  <span className="text-2xl md:text-3xl">✓</span>
+                </div>
+                <h3 className="text-lg md:text-xl font-normal mb-3" style={{color: '#1F1F1F'}}>无创安全</h3>
+                <p className="text-sm md:text-base font-light leading-relaxed" style={{color: '#6B7280'}}>
+                  无需手术，采用国际认证产品，安全可靠，风险极低
+                </p>
               </div>
-              <div className="p-6" style={{backgroundColor: '#F3F4F6'}}>
-                <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>即刻见效</h3>
-                <p className="text-sm" style={{color: '#6B7280'}}>治疗后立即看到效果</p>
+              <div className="text-center p-6 md:p-8 bg-white border transition-all duration-300 hover:shadow-lg" style={{borderColor: '#E5E7EB'}}>
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto mb-4 md:mb-6 flex items-center justify-center" style={{backgroundColor: '#F3F4F6'}}>
+                  <span className="text-2xl md:text-3xl">⚡</span>
+                </div>
+                <h3 className="text-lg md:text-xl font-normal mb-3" style={{color: '#1F1F1F'}}>即刻见效</h3>
+                <p className="text-sm md:text-base font-light leading-relaxed" style={{color: '#6B7280'}}>
+                  治疗后即可看到初步效果，无需漫长等待期
+                </p>
               </div>
-              <div className="p-6" style={{backgroundColor: '#F3F4F6'}}>
-                <h3 className="text-lg font-normal mb-3" style={{color: '#1F1F1F'}}>自然持久</h3>
-                <p className="text-sm" style={{color: '#6B7280'}}>效果自然，持续时间长</p>
+              <div className="text-center p-6 md:p-8 bg-white border transition-all duration-300 hover:shadow-lg" style={{borderColor: '#E5E7EB'}}>
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto mb-4 md:mb-6 flex items-center justify-center" style={{backgroundColor: '#F3F4F6'}}>
+                  <span className="text-2xl md:text-3xl">★</span>
+                </div>
+                <h3 className="text-lg md:text-xl font-normal mb-3" style={{color: '#1F1F1F'}}>自然持久</h3>
+                <p className="text-sm md:text-base font-light leading-relaxed" style={{color: '#6B7280'}}>
+                  效果自然不僵硬，持续时间长，塑造真实美感
+                </p>
               </div>
             </div>
           </div>
