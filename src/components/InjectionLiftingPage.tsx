@@ -11,14 +11,30 @@ function InjectionLiftingPage() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="py-24 px-12">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl font-light mb-6 tracking-wide" style={{color: '#1F1F1F'}}>
+      {/* Hero Section */}
+      <section className="py-16 md:py-20 px-6 md:px-12 bg-white md:bg-[#FAFAFA]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-3xl md:text-5xl font-light mb-6 leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>
             面部年轻化
           </h1>
-          <p className="text-lg mb-12 leading-relaxed" style={{color: '#6B7280'}}>
+          <p className="text-sm md:text-base font-light leading-relaxed mb-8 max-w-2xl mx-auto" style={{color: '#4B5563'}}>
             非手术方式，轻松实现年轻化效果
           </p>
+          <button
+            onClick={() => navigate('/booking')}
+            className="px-8 py-3 text-sm md:text-base font-light tracking-wide transition-all duration-300 hover:opacity-80"
+            style={{
+              backgroundColor: '#1C2B3A',
+              color: '#FFFFFF'
+            }}
+          >
+            现在开始探索
+          </button>
+        </div>
+      </section>
+
+      <section className="py-24 px-12">
+        <div className="max-w-6xl mx-auto">
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
             <div className="space-y-6">
