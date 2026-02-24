@@ -12,7 +12,7 @@ function InjectionLiftingPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="py-16 md:py-20 px-6 md:px-12 bg-white md:bg-[#FAFAFA]">
+      <section className="py-16 md:py-20 px-6 md:px-12 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-light mb-6 leading-relaxed tracking-wide" style={{color: '#1F1F1F'}}>
             面部年轻化
