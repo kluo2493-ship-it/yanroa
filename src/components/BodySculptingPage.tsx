@@ -35,6 +35,12 @@ function BodySculptingPage() {
         '后腰凹陷塑造',
         '侧腰线条雕刻',
         '腰臀比例黄金设计'
+      ],
+      images: [
+        '/Gemini_Generated_Image_94iwds94iwds94iw.png',
+        '/Gemini_Generated_Image_iubeodiubeodiube.png',
+        '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
+        '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png'
       ]
     },
     breast: {
@@ -45,6 +51,12 @@ function BodySculptingPage() {
         '自体脂肪隆胸',
         '复合隆胸技术',
         '个性化形态设计'
+      ],
+      images: [
+        '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
+        '/Gemini_Generated_Image_pf7kappf7kappf7k.png',
+        '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png',
+        '/Gemini_Generated_Image_a16ssqa16ssqa16s.png'
       ]
     },
     liposuction: {
@@ -55,6 +67,12 @@ function BodySculptingPage() {
         '水动力吸脂',
         '激光溶脂',
         '多部位综合塑形'
+      ],
+      images: [
+        '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
+        '/Gemini_Generated_Image_94iwds94iwds94iw.png',
+        '/Gemini_Generated_Image_iubeodiubeodiube.png',
+        '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png'
       ]
     },
     abdomen: {
@@ -65,6 +83,12 @@ function BodySculptingPage() {
         '腹壁成型',
         '马甲线雕刻',
         '腹部皮肤收紧'
+      ],
+      images: [
+        '/Gemini_Generated_Image_pf7kappf7kappf7k.png',
+        '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
+        '/Gemini_Generated_Image_a16ssqa16ssqa16s.png',
+        '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png'
       ]
     },
     buttocks: {
@@ -75,6 +99,12 @@ function BodySculptingPage() {
         '臀部提升',
         '臀部吸脂',
         'S曲线塑造'
+      ],
+      images: [
+        '/Gemini_Generated_Image_fv9uk0fv9uk0fv9u.png',
+        '/Gemini_Generated_Image_u1lac1u1lac1u1la.png',
+        '/Gemini_Generated_Image_94iwds94iwds94iw.png',
+        '/Gemini_Generated_Image_iubeodiubeodiube.png'
       ]
     },
     thigh: {
@@ -85,6 +115,12 @@ function BodySculptingPage() {
         '膝盖周围塑形',
         '小腿肌肉缩小',
         '腿部线条雕刻'
+      ],
+      images: [
+        '/Gemini_Generated_Image_a16ssqa16ssqa16s.png',
+        '/Gemini_Generated_Image_qvpx6jqvpx6jqvpx.png',
+        '/Gemini_Generated_Image_lv6nndlv6nndlv6n.png',
+        '/Gemini_Generated_Image_pf7kappf7kappf7k.png'
       ]
     }
   };
@@ -278,14 +314,16 @@ function BodySculptingPage() {
 
           {/* Service Details */}
           <div className="bg-gray-50 p-8 md:p-12 border" style={{borderColor: '#E5E7EB'}}>
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <h3 className="text-xl md:text-2xl font-light mb-4" style={{color: '#1F1F1F'}}>
                 {serviceDetails[activeService].title}
               </h3>
               <p className="text-sm md:text-base mb-8 leading-relaxed" style={{color: '#6B7280'}}>
                 {serviceDetails[activeService].description}
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              {/* Techniques Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                 {serviceDetails[activeService].techniques.map((technique, index) => (
                   <div
                     key={index}
@@ -294,6 +332,23 @@ function BodySculptingPage() {
                   >
                     <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
                     <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{technique}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Images Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {serviceDetails[activeService].images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="bg-white border overflow-hidden"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <img
+                      src={image}
+                      alt={`${serviceDetails[activeService].title} 案例 ${index + 1}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
                   </div>
                 ))}
               </div>
