@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { useState } from 'react';
 import ImageCompareSlider from './ImageCompareSlider';
 import CTASection from './CTASection';
 import Footer from './Footer';
@@ -7,6 +8,7 @@ import Navbar from './Navbar';
 
 function InjectionLiftingPage() {
   const navigate = useNavigate();
+  const [activeService, setActiveService] = useState<'botox' | 'fillers' | 'midface' | 'smas' | 'single'>('botox');
 
   return (
     <div className="min-h-screen bg-white">
@@ -52,77 +54,128 @@ function InjectionLiftingPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-6 md:px-12 bg-white">
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-light mb-12 md:mb-16 text-center" style={{color: '#1F1F1F'}}>服务项目</h2>
+          <div className="mb-16 text-center">
+            <h2 className="text-2xl md:text-3xl font-light mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
+              服务项目
+            </h2>
+            <p className="text-sm md:text-base font-light" style={{color: '#6B7280'}}>
+              无创年轻化，重塑自然美感
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {/* Service Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mb-16">
             {[
-              {
-                title: '肉毒素注射',
-                description: '精准减少动态皱纹，抚平额头纹、鱼尾纹、川字纹',
-                features: ['即刻见效', '无恢复期', '效果自然']
-              },
-              {
-                title: '玻尿酸填充',
-                description: '恢复面部饱满度，填充凹陷，重塑年轻轮廓',
-                features: ['立体塑形', '持久保湿', '安全可吸收']
-              },
-              {
-                title: '面中三件套提升',
-                description: '针对面中部位进行综合提升，改善苹果肌、泪沟、法令纹',
-                features: ['三位一体', '全面年轻化', '效果显著']
-              },
-              {
-                title: 'SMAS筋膜提升',
-                description: '深层筋膜层提升，从根本改善面部松弛下垂',
-                features: ['深层提升', '持久紧致', '专业技术']
-              },
-              {
-                title: '单部位提升',
-                description: '针对性改善局部问题，精准提升单一部位',
-                features: ['精准定位', '个性化方案', '快速恢复']
-              }
-            ].map((service, index) => (
-              <div
-                key={index}
-                className="group bg-white border hover:shadow-xl transition-all duration-500 overflow-hidden"
-                style={{borderColor: '#E5E7EB'}}
+              { key: 'botox' as const, title: '肉毒素注射', subtitle: '抚平动态皱纹' },
+              { key: 'fillers' as const, title: '玻尿酸填充', subtitle: '恢复面部饱满' },
+              { key: 'midface' as const, title: '面中三件套', subtitle: '综合提升改善' },
+              { key: 'smas' as const, title: 'SMAS筋膜提升', subtitle: '深层紧致提升' },
+              { key: 'single' as const, title: '单部位提升', subtitle: '精准局部改善' },
+            ].map((service) => (
+              <button
+                key={service.key}
+                onClick={() => setActiveService(service.key)}
+                className="p-6 md:p-8 border transition-all duration-300 text-center"
+                style={{
+                  backgroundColor: activeService === service.key ? '#1C2B3A' : 'white',
+                  borderColor: activeService === service.key ? '#1C2B3A' : '#E5E7EB',
+                  color: activeService === service.key ? 'white' : '#1F1F1F'
+                }}
+                onMouseEnter={(e) => {
+                  if (activeService !== service.key) {
+                    e.currentTarget.style.borderColor = '#1C2B3A';
+                    e.currentTarget.style.transform = 'translateY(-4px)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeService !== service.key) {
+                    e.currentTarget.style.borderColor = '#E5E7EB';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }
+                }}
               >
-                <div className="p-6 md:p-8">
-                  <div className="mb-6">
-                    <div
-                      className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
-                      style={{backgroundColor: '#F3F4F6'}}
-                    >
-                      <span className="text-xl md:text-2xl font-light" style={{color: '#1C2B3A'}}>
-                        {index + 1}
-                      </span>
-                    </div>
-                    <h3 className="text-lg md:text-xl font-normal mb-3" style={{color: '#1F1F1F'}}>
-                      {service.title}
-                    </h3>
-                    <p className="text-sm md:text-base font-light leading-relaxed mb-6" style={{color: '#6B7280'}}>
-                      {service.description}
-                    </p>
-                  </div>
-
-                  <div className="space-y-2 pt-4 border-t" style={{borderColor: '#F3F4F6'}}>
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <div
-                          className="w-1.5 h-1.5 rounded-full"
-                          style={{backgroundColor: '#1C2B3A'}}
-                        />
-                        <span className="text-sm font-light" style={{color: '#4B5563'}}>
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+                <h3 className="text-base md:text-lg font-normal mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-xs md:text-sm font-light opacity-80">
+                  {service.subtitle}
+                </p>
+              </button>
             ))}
+          </div>
+
+          {/* Service Details */}
+          <div className="bg-gray-50 p-8 md:p-12 border" style={{borderColor: '#E5E7EB'}}>
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-xl md:text-2xl font-light mb-4" style={{color: '#1F1F1F'}}>
+                {activeService === 'botox' && '肉毒素注射'}
+                {activeService === 'fillers' && '玻尿酸填充'}
+                {activeService === 'midface' && '面中三件套提升'}
+                {activeService === 'smas' && 'SMAS筋膜提升'}
+                {activeService === 'single' && '单部位提升'}
+              </h3>
+              <p className="text-sm md:text-base mb-8 leading-relaxed" style={{color: '#6B7280'}}>
+                {activeService === 'botox' && '精准减少动态皱纹，抚平额头纹、鱼尾纹、川字纹'}
+                {activeService === 'fillers' && '恢复面部饱满度，填充凹陷，重塑年轻轮廓'}
+                {activeService === 'midface' && '针对面中部位进行综合提升，改善苹果肌、泪沟、法令纹'}
+                {activeService === 'smas' && '深层筋膜层提升，从根本改善面部松弛下垂'}
+                {activeService === 'single' && '针对性改善局部问题，精准提升单一部位'}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {activeService === 'botox' && ['即刻见效', '无恢复期', '效果自然', '安全可靠'].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-white border"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
+                    <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
+                  </div>
+                ))}
+                {activeService === 'fillers' && ['立体塑形', '持久保湿', '安全可吸收', '即时见效'].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-white border"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
+                    <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
+                  </div>
+                ))}
+                {activeService === 'midface' && ['三位一体', '全面年轻化', '效果显著', '持久自然'].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-white border"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
+                    <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
+                  </div>
+                ))}
+                {activeService === 'smas' && ['深层提升', '持久紧致', '专业技术', '效果自然'].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-white border"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
+                    <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
+                  </div>
+                ))}
+                {activeService === 'single' && ['精准定位', '个性化方案', '快速恢复', '效果明显'].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-4 bg-white border"
+                    style={{borderColor: '#E5E7EB'}}
+                  >
+                    <span className="mt-1 text-sm" style={{color: '#1C2B3A'}}>●</span>
+                    <span className="text-sm md:text-base" style={{color: '#4B5563'}}>{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="mt-16 md:mt-24 pt-12 md:pt-16 border-t" style={{borderColor: '#E5E7EB'}}>
