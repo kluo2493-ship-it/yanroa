@@ -277,8 +277,6 @@ function Navbar() {
           </div>
 
           <div className="flex-1 overflow-y-auto py-6">
-            <LanguageSelector isMobile={true} />
-
             <button
               onClick={() => {
                 navigate('/');
@@ -387,6 +385,10 @@ function Navbar() {
           </div>
 
           <div className="p-6 border-t border-white border-opacity-20">
+            <div className="mb-4">
+              <LanguageSelector isMobile={true} />
+            </div>
+
             <button
               onClick={() => {
                 navigate('/booking');
