@@ -77,7 +77,7 @@ export default function ImageCompareSlider({
           <img
             src={afterImage}
             alt={afterLabel}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         ) : (
           <div
@@ -90,29 +90,30 @@ export default function ImageCompareSlider({
       </div>
 
       <div
-        className="absolute inset-0 flex items-center justify-center overflow-hidden"
+        className="absolute inset-0 overflow-hidden"
         style={{
           clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`
         }}
       >
-        {beforeImage ? (
-          <img
-            src={beforeImage}
-            alt={beforeLabel}
-            className="w-full h-full object-cover"
-            style={{ width: '100vw', maxWidth: 'none', position: 'absolute', left: 0 }}
-          />
-        ) : (
-          <div
-            className="w-full h-full flex items-center justify-center border"
-            style={{
-              backgroundColor: '#D4A574',
-              borderColor: '#A0A7B5'
-            }}
-          >
-            <span className="text-gray-500 text-sm">{beforeLabel}</span>
-          </div>
-        )}
+        <div className="relative w-full h-full">
+          {beforeImage ? (
+            <img
+              src={beforeImage}
+              alt={beforeLabel}
+              className="absolute inset-0 w-full h-full object-contain"
+            />
+          ) : (
+            <div
+              className="w-full h-full flex items-center justify-center border"
+              style={{
+                backgroundColor: '#D4A574',
+                borderColor: '#A0A7B5'
+              }}
+            >
+              <span className="text-gray-500 text-sm">{beforeLabel}</span>
+            </div>
+          )}
+        </div>
       </div>
 
       <div
