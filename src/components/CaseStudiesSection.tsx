@@ -37,8 +37,8 @@ function CaseStudiesSection() {
 
   if (loading) {
     return (
-      <section className="py-8 md:py-24 px-2 md:px-4 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="py-8 md:py-16 px-2 md:px-6 bg-white">
+        <div className="max-w-[1600px] mx-auto text-center">
           <p className="text-sm" style={{color: '#6B7280'}}>加载中...</p>
         </div>
       </section>
@@ -47,16 +47,16 @@ function CaseStudiesSection() {
 
   if (cases.length === 0) {
     return (
-      <section className="py-8 md:py-24 px-2 md:px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-8 md:py-16 px-2 md:px-6 bg-white">
+        <div className="max-w-[1600px] mx-auto">
           <h2 className="text-xl md:text-3xl font-light text-center mb-3 md:mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
             他们通过 YANOR A 找回的自信
           </h2>
-          <div className="w-16 md:w-20 h-px mx-auto mb-6 md:mb-20" style={{backgroundColor: '#A0A7B5'}}></div>
+          <div className="w-16 md:w-20 h-px mx-auto mb-6 md:mb-12" style={{backgroundColor: '#A0A7B5'}}></div>
 
-          <div className="space-y-2 md:space-y-4">
+          <div className="space-y-2 md:space-y-3">
             {[1, 2, 3, 4].map((row) => (
-              <div key={row} className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
+              <div key={row} className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3">
                 {[1, 2].map((col) => (
                   <div key={col} className="md:col-span-2 bg-white overflow-hidden">
                     <div className="grid grid-cols-2 gap-0">
@@ -89,16 +89,16 @@ function CaseStudiesSection() {
   }
 
   return (
-    <section className="py-8 md:py-24 px-2 md:px-4 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-8 md:py-16 px-2 md:px-6 bg-white">
+      <div className="max-w-[1600px] mx-auto">
         <h2 className="text-xl md:text-3xl font-light text-center mb-3 md:mb-4 tracking-wide" style={{color: '#1F1F1F'}}>
           他们通过 YANOR A 找回的自信
         </h2>
-        <div className="w-16 md:w-20 h-px mx-auto mb-6 md:mb-20" style={{backgroundColor: '#A0A7B5'}}></div>
+        <div className="w-16 md:w-20 h-px mx-auto mb-6 md:mb-12" style={{backgroundColor: '#A0A7B5'}}></div>
 
-        <div className="space-y-2 md:space-y-4">
+        <div className="space-y-2 md:space-y-3">
           {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
+            <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3">
               {row.map((caseStudy) => (
                 <div key={caseStudy.id} className="md:col-span-2">
                   <div className="grid grid-cols-2 gap-0">
