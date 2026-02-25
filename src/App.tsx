@@ -467,8 +467,10 @@ function App() {
               </div>
               <div className="aspect-[3/3]">
                 <ImageCompareSlider
-                  beforeLabel="【此处放置案例照片 A】"
-                  afterLabel="【此处放置案例照片 B】"
+                  beforeImage="/5ef6dae25777256ca4e3fafedffbbea9.jpg"
+                  afterImage="/c324214cb2a62d16d00510d9652c0f60.jpg"
+                  beforeLabel="术前"
+                  afterLabel="术后"
                   initialPosition={50}
                 />
               </div>
@@ -505,8 +507,10 @@ function App() {
               </div>
               <div className="aspect-square">
                 <ImageCompareSlider
-                  beforeLabel="【此处放置案例照片 C】"
-                  afterLabel="【此处放置案例照片 D】"
+                  beforeImage="/5ef6dae25777256ca4e3fafedffbbea9.jpg"
+                  afterImage="/c324214cb2a62d16d00510d9652c0f60.jpg"
+                  beforeLabel="术前"
+                  afterLabel="术后"
                   initialPosition={50}
                 />
               </div>
