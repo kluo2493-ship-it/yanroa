@@ -120,22 +120,22 @@ export default function ImageCompareSlider({
         className="absolute top-0 bottom-0 cursor-ew-resize"
         style={{
           left: `${sliderPosition}%`,
-          backgroundColor: 'white',
+          backgroundColor: 'transparent',
           width: '2px',
           transform: 'translateX(-50%)',
           zIndex: 10
         }}
       >
         <div
-          className="absolute top-1/2 left-1/2 w-6 h-6 rounded-full flex items-center justify-center shadow-lg"
+          className="absolute top-1/2 left-1/2 w-10 h-10 rounded-full flex items-center justify-center shadow-lg"
           style={{
             backgroundColor: 'white',
             transform: 'translate(-50%, -50%)',
           }}
         >
-          <div className="flex gap-0.5">
-            <div className="w-0.5 h-3 bg-gray-400"></div>
-            <div className="w-0.5 h-3 bg-gray-400"></div>
+          <div className="flex items-center text-gray-600 font-bold text-lg">
+            <span>&lt;</span>
+            <span>&gt;</span>
           </div>
         </div>
       </div>
