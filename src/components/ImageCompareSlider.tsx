@@ -127,15 +127,17 @@ export default function ImageCompareSlider({
         }}
       >
         <div
-          className="absolute top-1/2 left-1/2 flex items-center"
+          className="absolute top-1/2 left-1/2 flex items-center gap-0.5"
           style={{
             transform: 'translate(-50%, -50%)',
           }}
         >
-          <div className="flex items-center text-white font-bold text-lg drop-shadow-lg">
-            <span>&lt;</span>
-            <span>&gt;</span>
-          </div>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="drop-shadow-md">
+            <path d="M7 2L3 6L7 10" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="drop-shadow-md">
+            <path d="M5 2L9 6L5 10" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
         </div>
       </div>
     </div>
