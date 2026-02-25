@@ -127,14 +127,12 @@ export default function ImageCompareSlider({
         }}
       >
         <div
-          className="absolute top-1/2 left-1/2 w-8 h-8 rounded-full flex items-center justify-center shadow-md"
+          className="absolute top-1/2 left-1/2 flex items-center"
           style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.7)',
             transform: 'translate(-50%, -50%)',
-            backdropFilter: 'blur(4px)',
           }}
         >
-          <div className="flex items-center text-gray-700 font-semibold text-sm">
+          <div className="flex items-center text-white font-bold text-lg drop-shadow-lg">
             <span>&lt;</span>
             <span>&gt;</span>
           </div>
