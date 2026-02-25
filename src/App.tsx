@@ -458,8 +458,10 @@ function App() {
             <div className="w-3/4 grid grid-cols-2 gap-6">
               <div className="aspect-[3/3]">
                 <ImageCompareSlider
-                  beforeLabel="【此处放置案例照片 A】"
-                  afterLabel="【此处放置案例照片 B】"
+                  beforeImage="/68744e766a6b63d88f86d714366bcd31.jpg"
+                  afterImage="/24a1e5e820d6d721e7aa3970ae648b43.jpg"
+                  beforeLabel="术前"
+                  afterLabel="术后"
                   initialPosition={50}
                 />
               </div>
@@ -494,8 +496,10 @@ function App() {
             <div className="flex flex-col gap-3">
               <div className="aspect-square">
                 <ImageCompareSlider
-                  beforeLabel="【此处放置案例照片 A】"
-                  afterLabel="【此处放置案例照片 B】"
+                  beforeImage="/68744e766a6b63d88f86d714366bcd31.jpg"
+                  afterImage="/24a1e5e820d6d721e7aa3970ae648b43.jpg"
+                  beforeLabel="术前"
+                  afterLabel="术后"
                   initialPosition={50}
                 />
               </div>
