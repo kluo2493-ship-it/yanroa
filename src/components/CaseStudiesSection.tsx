@@ -102,7 +102,7 @@ function CaseStudiesSection() {
               {row.map((caseStudy) => (
                 <div key={caseStudy.id} className="md:col-span-2 bg-white overflow-hidden shadow-sm hover:shadow-md transition">
                   <div className="grid grid-cols-2 gap-0">
-                    <div className="aspect-[4/5] overflow-hidden relative group p-1">
+                    <div className="aspect-[4/5] overflow-hidden relative group">
                       <img
                         src={caseStudy.before_image_url}
                         alt={`${caseStudy.title} - 术前`}
@@ -112,7 +112,7 @@ function CaseStudiesSection() {
                         <span className="text-xs text-white">术前</span>
                       </div>
                     </div>
-                    <div className="aspect-[4/5] overflow-hidden relative group p-1">
+                    <div className="aspect-[4/5] overflow-hidden relative group">
                       <img
                         src={caseStudy.after_image_url}
                         alt={`${caseStudy.title} - 术后`}
