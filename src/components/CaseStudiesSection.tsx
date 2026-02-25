@@ -102,23 +102,23 @@ function CaseStudiesSection() {
               {row.map((caseStudy) => (
                 <div key={caseStudy.id} className="md:col-span-2 bg-white overflow-hidden shadow-sm hover:shadow-md transition">
                   <div className="grid grid-cols-2 gap-0">
-                    <div className="aspect-[4/5] overflow-hidden relative group">
+                    <div className="aspect-[4/5] overflow-hidden relative group p-2">
                       <img
                         src={caseStudy.before_image_url}
                         alt={`${caseStudy.title} - 术前`}
                         className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                       />
-                      <div className="absolute bottom-2 md:bottom-3 left-2 md:left-3 bg-black bg-opacity-50 px-2 py-1">
+                      <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-black bg-opacity-50 px-2 py-1">
                         <span className="text-xs text-white">术前</span>
                       </div>
                     </div>
-                    <div className="aspect-[4/5] overflow-hidden relative group">
+                    <div className="aspect-[4/5] overflow-hidden relative group p-2">
                       <img
                         src={caseStudy.after_image_url}
                         alt={`${caseStudy.title} - 术后`}
                         className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                       />
-                      <div className="absolute bottom-2 md:bottom-3 left-2 md:left-3 bg-black bg-opacity-50 px-2 py-1">
+                      <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 bg-black bg-opacity-50 px-2 py-1">
                         <span className="text-xs text-white">术后</span>
                       </div>
                     </div>
