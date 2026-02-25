@@ -100,13 +100,13 @@ function CaseStudiesSection() {
           {rows.map((row, rowIndex) => (
             <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-8">
               {row.map((caseStudy) => (
-                <div key={caseStudy.id} className="md:col-span-2 bg-white overflow-hidden shadow-sm hover:shadow-md transition">
+                <div key={caseStudy.id} className="md:col-span-2">
                   <div className="grid grid-cols-2 gap-0">
                     <div className="aspect-[4/5] overflow-hidden relative group">
                       <img
                         src={caseStudy.before_image_url}
                         alt={`${caseStudy.title} - 术前`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                        className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                       />
                       <div className="absolute bottom-2 md:bottom-3 left-2 md:left-3 bg-black bg-opacity-50 px-2 py-1">
                         <span className="text-xs text-white">术前</span>
@@ -116,14 +116,14 @@ function CaseStudiesSection() {
                       <img
                         src={caseStudy.after_image_url}
                         alt={`${caseStudy.title} - 术后`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                        className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                       />
                       <div className="absolute bottom-2 md:bottom-3 left-2 md:left-3 bg-black bg-opacity-50 px-2 py-1">
                         <span className="text-xs text-white">术后</span>
                       </div>
                     </div>
                   </div>
-                  <div className="p-2 md:p-4 border-t" style={{borderColor: '#E5E7EB'}}>
+                  <div className="p-2 md:p-4 bg-white border-t" style={{borderColor: '#E5E7EB'}}>
                     <h3 className="text-xs md:text-sm font-normal" style={{color: '#1F1F1F'}}>{caseStudy.title}</h3>
                     <p className="text-xs mt-1" style={{color: '#6B7280'}}>{caseStudy.category}</p>
                   </div>
